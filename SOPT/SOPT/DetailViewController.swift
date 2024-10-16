@@ -9,14 +9,12 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    // titleLabel
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
-    // contentLabel
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
@@ -25,7 +23,6 @@ class DetailViewController: UIViewController {
         return label
     }()
     
-    // backButton
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.setTitle("이전 화면으로", for: .normal)
@@ -75,6 +72,7 @@ class DetailViewController: UIViewController {
                     equalTo: contentLabel.bottomAnchor,
                     constant: 20
                 ),
+                
                 backButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 backButton.heightAnchor.constraint(equalToConstant: 44),
                 backButton.widthAnchor.constraint(equalToConstant: 300),

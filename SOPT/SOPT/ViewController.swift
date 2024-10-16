@@ -67,26 +67,13 @@ class ViewController: UIViewController {
         return button
     }()
     
-    // 새로운 '전환 모드 변경' 버튼을 만든다
-    /*private lazy var pushModeToggleButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("전환 모드 변경", for: .normal)
-        button.backgroundColor = .tintColor
-        button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(toggleButtonTapped), for: .touchUpInside)
-        return button
-    }()*/
-    
     private let toggleSwitch: UISwitch = {
         let modeSwitch = UISwitch()
         modeSwitch.isOn = true
         modeSwitch.onTintColor = .tintColor
-        modeSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
+        modeSwitch.addTarget(ViewController.self, action: #selector(switchToggled), for: .valueChanged)
         return modeSwitch
     }()
-    
-    // 현재 전환 모드를 저장할 변수를 만든다 (boolean)
-    private var pushMode = true
     
     // 뷰가 메모리에 로드된 후 호출되는 메소드
     override func viewDidLoad() {
@@ -167,25 +154,13 @@ class ViewController: UIViewController {
                 nextButton.heightAnchor.constraint(equalToConstant: 50),
                 nextButton.widthAnchor.constraint(equalToConstant: 100),
                 
-                // 새 버튼 또한 layout에 배치되도록 한다
-                /*pushModeToggleButton.topAnchor.constraint(
-                 equalTo: nextButton.bottomAnchor,
-                 constant: 20
-                 ),
-                 pushModeToggleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                 pushModeToggleButton.heightAnchor.constraint(equalToConstant: 44),
-                 pushModeToggleButton.widthAnchor.constraint(equalToConstant: 300),
-                
-                toggleSwitch.topAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: 20),
-                toggleSwitch.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                */
             ]
         )
     }
     
     private func updateUI() {
-        // pushMode가 true이면 textLabel에 네비게이션을, false이면 모달을 띄운다
-        self.titleLabel.text = pushMode ? "지금은 네비게이션" : "지금은 모달"
+        // toggleSwitch가 켜져 있어서 true이면 textLabel에 네비게이션을, false이면 모달을 띄운다
+        self.titleLabel.text = self.toggleSwitch.isOn ? "지금은 네비게이션" : "지금은 모달"
     }
     
     @objc func nextButtonTapped() {
@@ -209,13 +184,13 @@ class ViewController: UIViewController {
             content: content
         )
         
-        // pushMode가 true이면 navigationController에 nextViewController를 push
-        if pushMode {
+        // toggleSwitch가 켜져 있으면 navigationController에 nextViewController를 push
+        if self.toggleSwitch.isOn {
             self.navigationController?.pushViewController(
                 nextViewController,
                 animated: true
             )
-            // pushMode가 false이면 기존 화면을 덮고 nextViewController가 뜨도록
+            // toggleSwitch가 꺼져 있으면 기존 화면을 덮고 nextViewController가 뜨도록
         } else {
             self.present(
                 nextViewController,
@@ -225,14 +200,12 @@ class ViewController: UIViewController {
     }
     
     @objc func toggleButtonTapped() {
-        // toggle() 메소드는 boolean 값을 반전시키는 역할
-        self.pushMode.toggle()
+        // toggleSwitch를 off로 변경
+        self.toggleSwitch.isOn = false
         self.updateUI()
     }
     
     @objc func switchToggled() {
-        // UISwitch 상태에 따라 pushMode 변경
-        self.pushMode = toggleSwitch.isOn
         self.updateUI()
     }
 }

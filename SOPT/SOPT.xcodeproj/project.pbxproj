@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00401EE02CC0D6E00078F3FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 00401EDF2CC0D6E00078F3FF /* .gitignore */; };
+		0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073BF362CBFA208000E6314 /* ColorsViewController.swift */; };
+		0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0073BF392CBFA2A1000E6314 /* SnapKit */; };
 		007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007EC2972CB973DB005ACF95 /* AppDelegate.swift */; };
 		007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007EC2992CB973DB005ACF95 /* SceneDelegate.swift */; };
 		007EC29C2CB973DB005ACF95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007EC29B2CB973DB005ACF95 /* ViewController.swift */; };
@@ -17,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00401EDF2CC0D6E00078F3FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0073BF362CBFA208000E6314 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		007EC2942CB973DB005ACF95 /* SOPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007EC2972CB973DB005ACF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007EC2992CB973DB005ACF95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 		007EC28B2CB973DB005ACF95 = {
 			isa = PBXGroup;
 			children = (
+				00401EDF2CC0D6E00078F3FF /* .gitignore */,
 				007EC2962CB973DB005ACF95 /* SOPT */,
 				007EC2952CB973DB005ACF95 /* Products */,
 			);
@@ -58,10 +65,11 @@
 		007EC2962CB973DB005ACF95 /* SOPT */ = {
 			isa = PBXGroup;
 			children = (
-				007EC2AB2CB97412005ACF95 /* DetailViewController.swift */,
 				007EC2972CB973DB005ACF95 /* AppDelegate.swift */,
 				007EC2992CB973DB005ACF95 /* SceneDelegate.swift */,
 				007EC29B2CB973DB005ACF95 /* ViewController.swift */,
+				007EC2AB2CB97412005ACF95 /* DetailViewController.swift */,
+				0073BF362CBFA208000E6314 /* ColorsViewController.swift */,
 				007EC29D2CB973DB005ACF95 /* Main.storyboard */,
 				007EC2A02CB973DC005ACF95 /* Assets.xcassets */,
 				007EC2A22CB973DC005ACF95 /* LaunchScreen.storyboard */,
@@ -86,6 +94,9 @@
 			dependencies = (
 			);
 			name = SOPT;
+			packageProductDependencies = (
+				0073BF392CBFA2A1000E6314 /* SnapKit */,
+			);
 			productName = SOPT;
 			productReference = 007EC2942CB973DB005ACF95 /* SOPT.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 007EC28B2CB973DB005ACF95;
+			packageReferences = (
+				0073BF382CBFA2A1000E6314 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 007EC2952CB973DB005ACF95 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00401EE02CC0D6E00078F3FF /* .gitignore in Resources */,
 				007EC2A42CB973DC005ACF95 /* LaunchScreen.storyboard in Resources */,
 				007EC2A12CB973DC005ACF95 /* Assets.xcassets in Resources */,
 				007EC29F2CB973DB005ACF95 /* Main.storyboard in Resources */,
@@ -141,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */,
 				007EC29C2CB973DB005ACF95 /* ViewController.swift in Sources */,
 				007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */,
 				007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */,
@@ -367,6 +383,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0073BF382CBFA2A1000E6314 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0073BF392CBFA2A1000E6314 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0073BF382CBFA2A1000E6314 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 007EC28C2CB973DB005ACF95 /* Project object */;
 }

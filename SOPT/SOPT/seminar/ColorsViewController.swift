@@ -33,9 +33,7 @@ class ColorsViewController: UIViewController {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        [redView, orangeView, yellowView, greenView, blueView, purpleView].forEach{
-            contentView.addSubview($0)
-        }
+        contentView.addSubviews(redView, orangeView, yellowView, greenView, blueView, purpleView)
         
     }
     

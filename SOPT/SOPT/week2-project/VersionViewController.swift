@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VersionRecordViewController: UIViewController {
+class VersionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

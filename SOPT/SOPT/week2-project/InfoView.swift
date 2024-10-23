@@ -25,7 +25,7 @@ class InfoView: UIView {
     private let secondVerticalDividerView = UIView()
     
     private let ageTitleLabel = UILabel()
-    private let ageValueLabel = UILabel()
+    private let ageLimitLabel = UILabel()
     private let ageUnitLabel = UILabel()
     private let ageStackView = UIStackView()
     
@@ -50,9 +50,15 @@ class InfoView: UIView {
         ratingCountLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         
         ratingValueLabel.text = "4.4"
+        if let roundedFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .largeTitle)
+            .withDesign(.rounded) {// rounded 디자인 적용
+            let roundedFont = UIFont(descriptor: roundedFontDescriptor, size: 24)
+            ratingValueLabel.font = UIFont(descriptor:  roundedFont.fontDescriptor.withSymbolicTraits(.traitBold)!, size: 24)
+        } else {
+            ratingValueLabel.font = UIFont.systemFont(ofSize: 24, weight: .heavy) // 폰트 설정 실패 시 기본 폰트
+        }
         ratingValueLabel.textColor = .gray
         ratingValueLabel.textAlignment = .center
-        ratingValueLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         
         ratingStarLabel.text = "★★★★☆"
         ratingStarLabel.textColor = .gray
@@ -80,10 +86,16 @@ class InfoView: UIView {
         ageTitleLabel.textAlignment = .center
         ageTitleLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         
-        ageValueLabel.text = "4+"
-        ageValueLabel.textColor = .gray
-        ageValueLabel.textAlignment = .center
-        ageValueLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        ageLimitLabel.text = "4+"
+        if let roundedFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .largeTitle)
+            .withDesign(.rounded) {// rounded 디자인 적용
+            let roundedFont = UIFont(descriptor: roundedFontDescriptor, size: 24)
+            ageLimitLabel.font = UIFont(descriptor:  roundedFont.fontDescriptor.withSymbolicTraits(.traitBold)!, size: 24)
+        } else {
+            ageLimitLabel.font = UIFont.systemFont(ofSize: 24, weight: .heavy) // 폰트 설정 실패 시 기본 폰트
+        }
+        ageLimitLabel.textColor = .gray
+        ageLimitLabel.textAlignment = .center
         
         ageUnitLabel.text = "세"
         ageUnitLabel.textColor = .lightGray
@@ -110,7 +122,7 @@ class InfoView: UIView {
         awardStackView.spacing = 8
         
         ageStackView.addArrangedSubview(ageTitleLabel)
-        ageStackView.addArrangedSubview(ageValueLabel)
+        ageStackView.addArrangedSubview(ageLimitLabel)
         ageStackView.addArrangedSubview(ageUnitLabel)
         ageStackView.axis = .vertical
         ageStackView.spacing = 4 //왜 얘만 간격 줄여줘야 전체 높이가 비슷해질까

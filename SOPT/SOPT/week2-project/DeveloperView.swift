@@ -43,10 +43,7 @@ class DeveloperView: UIView {
     }
     
     private func setUI() {
-        developerButton.addSubview(titleLabel)
-        developerButton.addSubview(subtitleLabel)
-        developerButton.addSubview(arrowImageView)
-        
+        developerButton.addSubviews(titleLabel, subtitleLabel, arrowImageView)
         addSubviews(developerButton) // 버튼을 View에 추가
     }
     

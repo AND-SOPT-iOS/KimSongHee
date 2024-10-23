@@ -18,27 +18,34 @@ class TossViewController: UIViewController {
     private let previewView = PreviewView()
     private let descriptionView = DescriptionView()
     private let developerView = DeveloperView()
-    private let reviewStatView = UIView()
-    private let reviewView = UIView()
+    private let statView = StatView()
+    private let reviewView = ReviewView()
+    
+    private let firstSeparatorView = UIView()
+    private let secondSeparatorView = UIView()
+    private let thirdSeparatorView = UIView()
+    private let fourthSeparatorView = UIView()
+    private let fifthSeparatorView = UIView()
+    private let sixthSeparatorView = UIView()
+    private let seventhSeparatorView = UIView()
     
     private func setUI() {
         self.view.backgroundColor = .white
         
-        titleView.backgroundColor = .white
-        infoView.backgroundColor = .white
-        noticeView.backgroundColor = .white
-        previewView.backgroundColor = .white
-        descriptionView.backgroundColor = .white
-        developerView.backgroundColor = .white
-        reviewStatView.backgroundColor = .brown
-        reviewView.backgroundColor = .gray
+        firstSeparatorView.backgroundColor = .systemGray4
+        secondSeparatorView.backgroundColor = .systemGray4
+        thirdSeparatorView.backgroundColor = .systemGray4
+        fourthSeparatorView.backgroundColor = .systemGray4
+        fifthSeparatorView.backgroundColor = .systemGray4
+        sixthSeparatorView.backgroundColor = .systemGray4
+        seventhSeparatorView.backgroundColor = .systemGray4
     }
     
     private func setHierarchy() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        contentView.addSubviews(titleView, infoView, noticeView, previewView, descriptionView, developerView, reviewStatView, reviewView)
+        contentView.addSubviews(titleView, firstSeparatorView, infoView, secondSeparatorView, noticeView, thirdSeparatorView, previewView, fourthSeparatorView, descriptionView, developerView, fifthSeparatorView, statView, sixthSeparatorView, reviewView, seventhSeparatorView)
     }
     
     private func setLayout() {
@@ -59,29 +66,61 @@ class TossViewController: UIViewController {
             $0.height.equalTo(150)
         }
         
-        infoView.snp.makeConstraints{
+        // titleView - infoView 구분선
+        firstSeparatorView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
+        }
+        
+        infoView.snp.makeConstraints{
+            $0.top.equalTo(firstSeparatorView.snp.bottom)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(100)
         }
         
-        noticeView.snp.makeConstraints{
+        // infoView - noticeView 구분선
+        secondSeparatorView.snp.makeConstraints {
             $0.top.equalTo(infoView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
+        }
+        
+        noticeView.snp.makeConstraints{
+            $0.top.equalTo(secondSeparatorView.snp.bottom).offset(10)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(150)
         }
         
-        previewView.snp.makeConstraints{
+        // noticeView - previewView 구분선
+        thirdSeparatorView.snp.makeConstraints {
             $0.top.equalTo(noticeView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
+        }
+        
+        previewView.snp.makeConstraints{
+            $0.top.equalTo(thirdSeparatorView.snp.bottom).offset(10)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(600)
         }
         
-        descriptionView.snp.makeConstraints{
+        // previewView - descriptionView 구분선
+        fourthSeparatorView.snp.makeConstraints {
             $0.top.equalTo(previewView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
+        }
+        
+        descriptionView.snp.makeConstraints{
+            $0.top.equalTo(fourthSeparatorView.snp.bottom).offset(10)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(100)
@@ -91,22 +130,46 @@ class TossViewController: UIViewController {
             $0.top.equalTo(descriptionView.snp.bottom)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
-            $0.height.equalTo(100)
+            $0.height.equalTo(70)
         }
         
-        reviewStatView.snp.makeConstraints{
+        // developerView - statView 구분선
+        fifthSeparatorView.snp.makeConstraints {
             $0.top.equalTo(developerView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
+        }
+        
+        statView.snp.makeConstraints{
+            $0.top.equalTo(fifthSeparatorView.snp.bottom).offset(10)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(150)
         }
         
+        // statView - reviewView 구분선
+        sixthSeparatorView.snp.makeConstraints {
+            $0.top.equalTo(statView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
+        }
+        
         reviewView.snp.makeConstraints{
-            $0.top.equalTo(reviewStatView.snp.bottom)
+            $0.top.equalTo(sixthSeparatorView.snp.bottom)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(400)
             $0.bottom.equalToSuperview().offset(-20)
+        }
+        
+        // 마지막 구분선
+        seventhSeparatorView.snp.makeConstraints {
+            $0.top.equalTo(reviewView.snp.bottom)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+            $0.height.equalTo(0.5)
         }
     }
     
@@ -119,6 +182,7 @@ class TossViewController: UIViewController {
         setLayout()
         
         noticeView.delegate = self
+        statView.delegate = self
     }
     
     @objc func backButtonTapped() {
@@ -147,8 +211,15 @@ extension TossViewController {
 }
 
 extension TossViewController: NoticeViewDelegate {
-    func transitionToNextViewController() {
-        let nextViewController = VersionRecordViewController()
+    func transitionToNoticeViewController() {
+        let nextViewController = VersionViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+extension TossViewController: ReviewViewDelegate {
+    func transitionToReviewViewController() {
+        let nextViewController = ReviewViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

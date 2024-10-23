@@ -9,7 +9,7 @@ import UIKit
 
 // 버전 기록 버튼이 눌리면 NavigationController 사용할 수 있도록
 protocol NoticeViewDelegate: AnyObject {
-    func transitionToNextViewController()
+    func transitionToNoticeViewController()
 }
 
 class NoticeView: UIView {
@@ -99,7 +99,7 @@ class NoticeView: UIView {
     }
     
     @objc func versionRecordButtonTapped() {
-        delegate?.transitionToNextViewController()
+        delegate?.transitionToNoticeViewController()
     }
     
     

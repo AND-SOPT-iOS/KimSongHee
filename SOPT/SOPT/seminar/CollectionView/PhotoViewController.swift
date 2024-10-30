@@ -29,6 +29,8 @@ class PhotoViewController: UIViewController {
         setUI()
         setLayout()
         setCollectionView()
+        configureDataSource()
+        applySnapshot()
     }
     
     private func setUI() {
@@ -63,6 +65,41 @@ class PhotoViewController: UIViewController {
         }
     }
     
+    // Diffable DataSource
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<PhotoSection, Photo>(collectionView: collectionView) { collectionView, indexPath, photo in
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: PhotoCell.identifier,
+                for: indexPath
+            ) as? PhotoCell else {
+                return UICollectionViewCell()
+            }
+            cell.bind(photo)
+            cell.likeButtonAction = { [weak self] in
+                guard let self = self else { return }
+                if let index = self.photoList.firstIndex(where: { $0 == photo }) {
+                    self.photoList[index].isLiked.toggle()
+                }
+                self.applySnapshot()
+            }
+            
+            return cell
+        }
+    }
+    
+    // DataSource의 Snapshot 만들기
+    private func applySnapshot() {
+        // 좋아요 누를 때마다 눌린 아이템을 맨 앞으로 정렬
+        let sortedPhotoList = self.photoList.sorted { $0.isLiked && !$1.isLiked }
+        // Snapshot 생성
+        var snapshot = NSDiffableDataSourceSnapshot<PhotoSection, Photo>()
+        // main section에 추가
+        snapshot.appendSections([.main])
+        // 해당 섹션에 데이터 넣어주기
+        snapshot.appendItems(sortedPhotoList, toSection: .main)
+        // 간단하게 변경된 부분을 반영하는 apply()
+        self.dataSource.apply(snapshot, animatingDifferences: true) // 5
+    }
 }
 
 extension PhotoViewController: UICollectionViewDelegate { }
@@ -93,7 +130,7 @@ extension PhotoViewController: UICollectionViewDataSource {
         
         // 좋아요 버튼 기능 구현
         item.likeButtonAction = { [weak self] in // 강한 순환 참조 방지
-                // self가 nil이면 클로저 종료
+            // self가 nil이면 클로저 종료
             guard let self else { return }
             
             // self가 존재하면

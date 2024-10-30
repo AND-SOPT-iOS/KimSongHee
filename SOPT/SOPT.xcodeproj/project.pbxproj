@@ -12,6 +12,9 @@
 		001038422CD225B7007C2085 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001038412CD225B7007C2085 /* App.swift */; };
 		001038442CD225CA007C2085 /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001038432CD225CA007C2085 /* DownloadState.swift */; };
 		001038472CD226B9007C2085 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 001038462CD226B9007C2085 /* Then */; };
+		0010384A2CD22CC2007C2085 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001038492CD22CC2007C2085 /* Photo.swift */; };
+		0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010384B2CD22D7D007C2085 /* PhotoViewController.swift */; };
+		0010384E2CD22EF2007C2085 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010384D2CD22EF2007C2085 /* PhotoCell.swift */; };
 		00127AEE2CC1EBC200A606C6 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00127AED2CC1EBC200A606C6 /* InfoView.swift */; };
 		00401EE02CC0D6E00078F3FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 00401EDF2CC0D6E00078F3FF /* .gitignore */; };
 		00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00401EE12CC0D8FE0078F3FF /* TossViewController.swift */; };
@@ -42,6 +45,9 @@
 		0010383F2CD225A4007C2085 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		001038412CD225B7007C2085 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		001038432CD225CA007C2085 /* DownloadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
+		001038492CD22CC2007C2085 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		0010384B2CD22D7D007C2085 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		0010384D2CD22EF2007C2085 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		00127AED2CC1EBC200A606C6 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		00401EDF2CC0D6E00078F3FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		00401EE12CC0D8FE0078F3FF /* TossViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,16 @@
 				0010383F2CD225A4007C2085 /* ChartViewController.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		001038482CD22C8E007C2085 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				001038492CD22CC2007C2085 /* Photo.swift */,
+				0010384B2CD22D7D007C2085 /* PhotoViewController.swift */,
+				0010384D2CD22EF2007C2085 /* PhotoCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		00401EE32CC0DB410078F3FF /* Global */ = {
@@ -167,6 +183,7 @@
 				007EC2AB2CB97412005ACF95 /* DetailViewController.swift */,
 				0073BF362CBFA208000E6314 /* ColorsViewController.swift */,
 				0010383C2CD2257D007C2085 /* TableView */,
+				001038482CD22C8E007C2085 /* CollectionView */,
 			);
 			path = seminar;
 			sourceTree = "<group>";
@@ -252,10 +269,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */,
+				0010384E2CD22EF2007C2085 /* PhotoCell.swift in Sources */,
 				007EC29C2CB973DB005ACF95 /* ViewController.swift in Sources */,
 				004986432CC813D6006CD84C /* DescriptionView.swift in Sources */,
 				00401EE62CC0DB9D0078F3FF /* UIView+.swift in Sources */,
 				007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */,
+				0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */,
 				004986452CC81B36006CD84C /* DeveloperView.swift in Sources */,
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,
 				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
@@ -267,6 +286,7 @@
 				001038422CD225B7007C2085 /* App.swift in Sources */,
 				007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */,
 				00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */,
+				0010384A2CD22CC2007C2085 /* Photo.swift in Sources */,
 				0049863F2CC8013A006CD84C /* VersionViewController.swift in Sources */,
 				0010383E2CD22590007C2085 /* ChartCell.swift in Sources */,
 				00127AEE2CC1EBC200A606C6 /* InfoView.swift in Sources */,

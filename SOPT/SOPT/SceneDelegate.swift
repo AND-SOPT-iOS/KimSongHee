@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         // Root View Controller 설정
-        let navigationController = UINavigationController(rootViewController: TossViewController())
+        let navigationController = UINavigationController(rootViewController: ChartViewController())
         self.window?.rootViewController = navigationController
         
         // Key Window로 표시

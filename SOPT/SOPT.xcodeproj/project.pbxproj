@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0010383E2CD22590007C2085 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010383D2CD22590007C2085 /* ChartCell.swift */; };
+		001038402CD225A4007C2085 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010383F2CD225A4007C2085 /* ChartViewController.swift */; };
+		001038422CD225B7007C2085 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001038412CD225B7007C2085 /* App.swift */; };
+		001038442CD225CA007C2085 /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001038432CD225CA007C2085 /* DownloadState.swift */; };
+		001038472CD226B9007C2085 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 001038462CD226B9007C2085 /* Then */; };
 		00127AEE2CC1EBC200A606C6 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00127AED2CC1EBC200A606C6 /* InfoView.swift */; };
 		00401EE02CC0D6E00078F3FF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 00401EDF2CC0D6E00078F3FF /* .gitignore */; };
 		00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00401EE12CC0D8FE0078F3FF /* TossViewController.swift */; };
@@ -33,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0010383D2CD22590007C2085 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
+		0010383F2CD225A4007C2085 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		001038412CD225B7007C2085 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		001038432CD225CA007C2085 /* DownloadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
 		00127AED2CC1EBC200A606C6 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		00401EDF2CC0D6E00078F3FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		00401EE12CC0D8FE0078F3FF /* TossViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossViewController.swift; sourceTree = "<group>"; };
@@ -65,12 +74,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */,
+				001038472CD226B9007C2085 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0010383C2CD2257D007C2085 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				001038412CD225B7007C2085 /* App.swift */,
+				001038432CD225CA007C2085 /* DownloadState.swift */,
+				0010383D2CD22590007C2085 /* ChartCell.swift */,
+				0010383F2CD225A4007C2085 /* ChartViewController.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		00401EE32CC0DB410078F3FF /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +166,7 @@
 				007EC29B2CB973DB005ACF95 /* ViewController.swift */,
 				007EC2AB2CB97412005ACF95 /* DetailViewController.swift */,
 				0073BF362CBFA208000E6314 /* ColorsViewController.swift */,
+				0010383C2CD2257D007C2085 /* TableView */,
 			);
 			path = seminar;
 			sourceTree = "<group>";
@@ -167,6 +189,7 @@
 			name = SOPT;
 			packageProductDependencies = (
 				0073BF392CBFA2A1000E6314 /* SnapKit */,
+				001038462CD226B9007C2085 /* Then */,
 			);
 			productName = SOPT;
 			productReference = 007EC2942CB973DB005ACF95 /* SOPT.app */;
@@ -198,6 +221,7 @@
 			mainGroup = 007EC28B2CB973DB005ACF95;
 			packageReferences = (
 				0073BF382CBFA2A1000E6314 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				001038452CD226B9007C2085 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 007EC2952CB973DB005ACF95 /* Products */;
 			projectDirPath = "";
@@ -236,11 +260,15 @@
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,
 				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
 				007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */,
+				001038442CD225CA007C2085 /* DownloadState.swift in Sources */,
+				001038402CD225A4007C2085 /* ChartViewController.swift in Sources */,
 				007B753A2CC87A0200155F27 /* StatView.swift in Sources */,
 				004986412CC80962006CD84C /* PreviewView.swift in Sources */,
+				001038422CD225B7007C2085 /* App.swift in Sources */,
 				007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */,
 				00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */,
 				0049863F2CC8013A006CD84C /* VersionViewController.swift in Sources */,
+				0010383E2CD22590007C2085 /* ChartCell.swift in Sources */,
 				00127AEE2CC1EBC200A606C6 /* InfoView.swift in Sources */,
 				007B753E2CC8870800155F27 /* ReviewView.swift in Sources */,
 				0049863D2CC7F68E006CD84C /* NoticeView.swift in Sources */,
@@ -469,6 +497,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		001038452CD226B9007C2085 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		0073BF382CBFA2A1000E6314 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -480,6 +516,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		001038462CD226B9007C2085 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 001038452CD226B9007C2085 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		0073BF392CBFA2A1000E6314 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0073BF382CBFA2A1000E6314 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -44,7 +44,9 @@ class NoticeView: UIView {
         versionRecordButton.setTitle("버전 기록", for: .normal)
         versionRecordButton.backgroundColor = .clear
         versionRecordButton.setTitleColor(.systemBlue, for: .normal)
-        versionRecordButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        var config = UIButton.Configuration.plain()
+        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
+        versionRecordButton.configuration = config
         versionRecordButton.addTarget(self, action: #selector(versionRecordButtonTapped), for: .touchUpInside)
         
         versionUpdateDateLabel.text = "5일 전"
@@ -58,12 +60,12 @@ class NoticeView: UIView {
             string: "⋅ 구석구석 숨어있던 버그들을 잡았어요. 또 다른 버그가 나타나면 토스 고객센터를 찾아주세요. 늘 열려있답니다. 365일 24시간 언제든지요.",
             attributes: [
                 .paragraphStyle: NoticeContentStyle,
-                .font: UIFont.systemFont(ofSize: 16) // 폰트 설정
+                .font: UIFont.systemFont(ofSize: 17) // 폰트 설정
             ]
         )
         noticeContentLabel.attributedText = NoticeContentText
         noticeContentLabel.numberOfLines = 0
-        noticeContentLabel.lineBreakMode = .byWordWrapping
+        noticeContentLabel.lineBreakMode = .byClipping
     }
     
     private func setUI() {
@@ -93,8 +95,9 @@ class NoticeView: UIView {
         
         noticeContentLabel.snp.makeConstraints{
             $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.trailing.equalToSuperview()
             $0.top.equalTo(versionInfoLabel.snp.bottom).offset(15)
+            $0.bottom.equalToSuperview()
         }
     }
     

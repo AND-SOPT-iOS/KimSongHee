@@ -61,114 +61,99 @@ class TossViewController: UIViewController {
         
         titleView.snp.makeConstraints{
             $0.top.equalToSuperview().offset(0)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(150)
         }
         
         // titleView - infoView 구분선
         firstSeparatorView.snp.makeConstraints {
-            $0.top.equalTo(titleView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(titleView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
         
         infoView.snp.makeConstraints{
             $0.top.equalTo(firstSeparatorView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(100)
         }
         
         // infoView - noticeView 구분선
         secondSeparatorView.snp.makeConstraints {
             $0.top.equalTo(infoView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
         
         noticeView.snp.makeConstraints{
             $0.top.equalTo(secondSeparatorView.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(150)
         }
         
         // noticeView - previewView 구분선
         thirdSeparatorView.snp.makeConstraints {
-            $0.top.equalTo(noticeView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(noticeView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
         
         previewView.snp.makeConstraints{
             $0.top.equalTo(thirdSeparatorView.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(600)
         }
         
         // previewView - descriptionView 구분선
         fourthSeparatorView.snp.makeConstraints {
-            $0.top.equalTo(previewView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(previewView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
         
         descriptionView.snp.makeConstraints{
             $0.top.equalTo(fourthSeparatorView.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(100)
         }
         
         developerView.snp.makeConstraints{
             $0.top.equalTo(descriptionView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
-            $0.height.equalTo(70)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(50)
         }
         
         // developerView - statView 구분선
         fifthSeparatorView.snp.makeConstraints {
-            $0.top.equalTo(developerView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(developerView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
         
         statView.snp.makeConstraints{
             $0.top.equalTo(fifthSeparatorView.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(150)
         }
         
         // statView - reviewView 구분선
         sixthSeparatorView.snp.makeConstraints {
-            $0.top.equalTo(statView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(statView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
         
         reviewView.snp.makeConstraints{
             $0.top.equalTo(sixthSeparatorView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(400)
             $0.bottom.equalToSuperview().offset(-20)
         }
         
         // 마지막 구분선
         seventhSeparatorView.snp.makeConstraints {
-            $0.top.equalTo(reviewView.snp.bottom)
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().offset(-20)
+            $0.top.equalTo(reviewView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(0.5)
         }
     }

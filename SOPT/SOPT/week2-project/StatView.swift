@@ -80,7 +80,7 @@ class StatView: UIView {
         
         allInfoButton.snp.makeConstraints {
             $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview()
+            $0.centerY.equalTo(titleLabel.snp.centerY)
         }
         
         scoreAvgLabel.snp.makeConstraints{
@@ -91,11 +91,12 @@ class StatView: UIView {
         scoreScaleLabel.snp.makeConstraints{
             $0.centerX.equalTo(scoreAvgLabel.snp.centerX)
             $0.top.equalTo(scoreAvgLabel.snp.bottom).offset(3)
+            $0.bottom.equalToSuperview()
         }
         
         statView.snp.makeConstraints{
             $0.trailing.equalToSuperview()
-            $0.top.equalTo(allInfoButton.snp.bottom).offset(5)
+            $0.centerY.equalTo(scoreAvgLabel.snp.centerY)
             $0.width.equalTo(240)
             $0.height.equalTo(60)
         }

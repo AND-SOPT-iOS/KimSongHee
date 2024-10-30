@@ -36,7 +36,7 @@ class DescriptionView: UIView {
         )
         descriptionContentLabel.attributedText = DescriptionContentText
         descriptionContentLabel.numberOfLines = 3 // 처음엔 3줄만 표시
-        descriptionContentLabel.lineBreakMode = .byClipping
+        descriptionContentLabel.lineBreakMode = .byWordWrapping
         
         moreInfoButton.setTitle("더 보기", for: .normal)
         moreInfoButton.setTitleColor(.systemBlue, for: .normal)

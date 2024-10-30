@@ -54,7 +54,9 @@ class TitleView: UIView {
         openButton.backgroundColor = .systemBlue
         openButton.layer.cornerRadius = 15
         openButton.clipsToBounds = true
-        openButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
+        var openConfig = UIButton.Configuration.plain()
+        openConfig.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
+        openButton.configuration = openConfig
         
         // 공유 버튼 설정
         let shareIconConfig = UIImage.SymbolConfiguration(weight: .medium) // 아이콘 두께
@@ -72,7 +74,8 @@ class TitleView: UIView {
         appIconImageView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
-            $0.width.height.equalTo(130)
+            $0.size.equalTo(130)
+            $0.bottom.equalToSuperview()
         }
         
         appTitleLabel.snp.makeConstraints {
@@ -87,13 +90,13 @@ class TitleView: UIView {
         
         openButton.snp.makeConstraints {
             $0.leading.equalTo(appTitleLabel)
-            $0.bottom.equalTo(appIconImageView.snp.bottom)
+            $0.bottom.equalToSuperview()
         }
         
         shareButton.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.centerY.equalTo(openButton.snp.centerY)
-            $0.width.height.equalTo(30)
+            $0.size.equalTo(30)
         }
     }
 }

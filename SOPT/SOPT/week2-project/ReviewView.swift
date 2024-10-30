@@ -44,12 +44,16 @@ class ReviewView: UIView {
         tapToReviewLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         tapToReviewLabel.textColor = .lightGray
         
-        starButton.setTitle("☆ ☆ ☆ ☆ ☆", for: .normal)
         starButton.setTitleColor(.systemBlue, for: .normal)
-        starButton.titleLabel?.font = UIFont.systemFont(ofSize: 35, weight: .light)
+        var starConfig = UIButton.Configuration.plain()
+        starConfig.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
+        var starText = AttributedString("☆ ☆ ☆ ☆ ☆")
+        starText.font = UIFont.systemFont(ofSize: 35, weight: .light)
+        starText.foregroundColor = .systemBlue
+        starConfig.attributedTitle = starText
+        starButton.configuration = starConfig
         starButton.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
-        starButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
+
         singleReviewButton.backgroundColor = .systemGray6
         singleReviewButton.layer.cornerRadius = 10
         
@@ -116,20 +120,25 @@ class ReviewView: UIView {
         writeReviewButton.setTitle("리뷰 작성", for: .normal)
         writeReviewButton.setTitleColor(.systemBlue, for: .normal)
         writeReviewButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        if let reviewIcon = UIImage(systemName: "square.and.pencil") {
-            writeReviewButton.setImage(reviewIcon, for: .normal)
-        }
-        writeReviewButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 5)
         writeReviewButton.tintColor = .systemBlue
+        var writeReviewConfig = UIButton.Configuration.plain()
+        writeReviewConfig.image = UIImage(systemName: "square.and.pencil")
+        writeReviewConfig.imagePadding = 5
+        writeReviewConfig.imagePlacement = .leading
+        writeReviewConfig.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        writeReviewButton.configuration = writeReviewConfig
         
         helpButton.setTitle("앱 지원", for: .normal)
         helpButton.setTitleColor(.systemBlue, for: .normal)
         helpButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        if let reviewIcon = UIImage(systemName: "questionmark.circle") {
-            helpButton.setImage(reviewIcon, for: .normal)
-        }
-        helpButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 5)
         helpButton.tintColor = .systemBlue
+        var helpConfig = UIButton.Configuration.plain()
+        helpConfig.image = UIImage(systemName: "questionmark.circle")
+        helpConfig.imagePadding = 5
+        helpConfig.imagePlacement = .leading
+        helpConfig.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        helpButton.configuration = helpConfig
+        
     }
     
     private func setUI() {
@@ -159,11 +168,13 @@ class ReviewView: UIView {
         writeReviewButton.snp.makeConstraints{
             $0.top.equalTo(singleReviewButton.snp.bottom).offset(30)
             $0.leading.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         helpButton.snp.makeConstraints{
             $0.top.equalTo(singleReviewButton.snp.bottom).offset(30)
             $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         
         

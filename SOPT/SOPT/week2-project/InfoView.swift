@@ -102,41 +102,30 @@ class InfoView: UIView {
         ageUnitLabel.textAlignment = .center
         ageUnitLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         
-        // 왜 둘이 색깔이 달라 보일까
-        firstVerticalDividerView.backgroundColor = .systemGray
-        secondVerticalDividerView.backgroundColor = .systemGray
+        firstVerticalDividerView.backgroundColor = .systemGray4
+        secondVerticalDividerView.backgroundColor = .systemGray4
         
     }
     
     private func setUI() {
-        ratingStackView.addArrangedSubview(ratingCountLabel)
-        ratingStackView.addArrangedSubview(ratingValueLabel)
-        ratingStackView.addArrangedSubview(ratingStarLabel)
+        ratingStackView.addArrangedSubviews(ratingCountLabel, ratingValueLabel, ratingStarLabel)
         ratingStackView.axis = .vertical
         ratingStackView.spacing = 8
         
-        awardStackView.addArrangedSubview(awardTitleLabel)
-        awardStackView.addArrangedSubview(awardNameLabel)
-        awardStackView.addArrangedSubview(awardCategoryLabel)
+        awardStackView.addArrangedSubviews(awardTitleLabel, awardNameLabel, awardCategoryLabel)
         awardStackView.axis = .vertical
         awardStackView.spacing = 8
         
-        ageStackView.addArrangedSubview(ageTitleLabel)
-        ageStackView.addArrangedSubview(ageLimitLabel)
-        ageStackView.addArrangedSubview(ageUnitLabel)
+        ageStackView.addArrangedSubviews(ageTitleLabel, ageLimitLabel, ageUnitLabel)
         ageStackView.axis = .vertical
         ageStackView.spacing = 4 //왜 얘만 간격 줄여줘야 전체 높이가 비슷해질까
         
-        mainStackView.addArrangedSubview(ratingStackView)
-        mainStackView.addArrangedSubview(firstVerticalDividerView)
-        mainStackView.addArrangedSubview(awardStackView)
-        mainStackView.addArrangedSubview(secondVerticalDividerView)
+        mainStackView.addArrangedSubviews(ratingStackView, firstVerticalDividerView, awardStackView, secondVerticalDividerView)
         mainStackView.addArrangedSubview(ageStackView)
         
         mainStackView.axis = .horizontal
-        mainStackView.spacing = 30
-        mainStackView.distribution = .equalCentering
-        mainStackView.alignment = .leading
+        mainStackView.distribution = .equalSpacing
+        mainStackView.alignment = .center
         
         addSubviews(mainStackView)
     }
@@ -146,18 +135,19 @@ class InfoView: UIView {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
+            $0.bottom.equalToSuperview()
         }
         
         firstVerticalDividerView.snp.makeConstraints{
             $0.width.equalTo(0.5)
-            $0.top.equalToSuperview().offset(10)
-            $0.height.equalToSuperview().offset(-20)
+            $0.height.equalToSuperview().offset(-40)
+            $0.centerY.equalToSuperview()
         }
         
         secondVerticalDividerView.snp.makeConstraints{
             $0.width.equalTo(0.5)
-            $0.top.equalToSuperview().offset(10)
-            $0.height.equalToSuperview().offset(-20)
+            $0.centerY.equalToSuperview()
+            $0.height.equalToSuperview().offset(-40)
         }
     }
     

@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         let modeSwitch = UISwitch()
         modeSwitch.isOn = true
         modeSwitch.onTintColor = .tintColor
-        modeSwitch.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
+        modeSwitch.addTarget(ViewController.self, action: #selector(switchToggled), for: .valueChanged)
         return modeSwitch
     }()
     

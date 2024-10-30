@@ -28,6 +28,7 @@
 		007EC2A12CB973DC005ACF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007EC2A02CB973DC005ACF95 /* Assets.xcassets */; };
 		007EC2A42CB973DC005ACF95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007EC2A22CB973DC005ACF95 /* LaunchScreen.storyboard */; };
 		007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007EC2AB2CB97412005ACF95 /* DetailViewController.swift */; };
+		00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */; };
 		00FF73382CC1E076001218BD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF73372CC1E076001218BD /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		007EC2A32CB973DC005ACF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		007EC2A52CB973DC005ACF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		007EC2AB2CB97412005ACF95 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		00FF73372CC1E076001218BD /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				00401EE52CC0DB9D0078F3FF /* UIView+.swift */,
+				00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */,
 				004986452CC81B36006CD84C /* DeveloperView.swift in Sources */,
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,
+				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
 				007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */,
 				007B753A2CC87A0200155F27 /* StatView.swift in Sources */,
 				004986412CC80962006CD84C /* PreviewView.swift in Sources */,

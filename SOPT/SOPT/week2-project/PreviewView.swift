@@ -11,7 +11,7 @@ class PreviewView: UIView {
 
     private let previewTitleLabel = UILabel()
     private let previewImageView = UIImageView()
-    private let iphoneLabel = UILabel()
+    private let iPhoneLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,22 +35,22 @@ class PreviewView: UIView {
         previewImageView.layer.borderWidth = 0.5
         previewImageView.layer.borderColor = UIColor.clear.cgColor
         
-        let iphoneIcon = UIImage(systemName: "iphone")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        let iphoneIconAttachment = NSTextAttachment()
-        iphoneIconAttachment.image = iphoneIcon
+        let iPhoneIcon = UIImage(systemName: "iphone")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        let iPhoneIconAttachment = NSTextAttachment()
+        iPhoneIconAttachment.image = iPhoneIcon
         
-        let iphoneIconText = NSMutableAttributedString(attachment: iphoneIconAttachment)
-        let iphoneText = NSAttributedString(string: " iPhone", attributes: [
+        let iPhoneIconText = NSMutableAttributedString(attachment: iPhoneIconAttachment)
+        let iPhoneText = NSAttributedString(string: " iPhone", attributes: [
             .font: UIFont.systemFont(ofSize: 15, weight: .semibold),
             .foregroundColor: UIColor.systemGray
         ])
         
-        iphoneIconText.append(iphoneText)
-        iphoneLabel.attributedText = iphoneIconText
+        iPhoneIconText.append(iPhoneText)
+        iPhoneLabel.attributedText = iPhoneIconText
     }
     
     private func setUI() {
-        addSubviews(previewTitleLabel, previewImageView, iphoneLabel)
+        addSubviews(previewTitleLabel, previewImageView, iPhoneLabel)
     }
     
     private func setLayout() {
@@ -66,9 +66,10 @@ class PreviewView: UIView {
             $0.height.equalTo(520)
         }
         
-        iphoneLabel.snp.makeConstraints {
+        iPhoneLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(previewImageView.snp.bottom).offset(10)
+            $0.bottom.equalToSuperview()
         }
     }
 

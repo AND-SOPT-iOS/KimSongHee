@@ -23,6 +23,16 @@ class DetailViewController: UIViewController {
         return label
     }()
     
+    private let nicknameTextField: UITextField = {
+        let textField = UITextField()
+        textField.clearButtonMode = .whileEditing //한번에 지울 수 있는 x버튼
+        textField.placeholder = "닉네임을 입력하세요"
+        textField.layer.borderColor = UIColor.gray.cgColor
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 10
+        return textField
+    }()
+    
     private lazy var backButton: UIButton = {
         let button = UIButton()
         button.setTitle("이전 화면으로", for: .normal)
@@ -33,9 +43,24 @@ class DetailViewController: UIViewController {
         return button
     }()
     
+    private lazy var textButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("텍스트 넘기기", for: .normal)
+        button.backgroundColor = .tintColor
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(textButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // 전달받은 title과 content를 저장할 string 변수를 옵셔널로 정의
     private var receivedTitle: String?
     private var receivedContent: String?
+    
+    // 델리게이트 사용해서 데이터 넘기기
+    weak var delegate: NicknameDelegate?
+    
+    // 클로저 사용해서 데이터 넘기기
+    var completionHandler: ((String) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +74,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setUI() {
-        [titleLabel, contentLabel, backButton].forEach {
+        [titleLabel, contentLabel, backButton, nicknameTextField, textButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview($0)
         }
@@ -76,6 +101,25 @@ class DetailViewController: UIViewController {
                 backButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 backButton.heightAnchor.constraint(equalToConstant: 44),
                 backButton.widthAnchor.constraint(equalToConstant: 300),
+                
+                nicknameTextField.topAnchor.constraint(
+                    equalTo: backButton.bottomAnchor,
+                    constant: 20
+                ),
+                nicknameTextField.leadingAnchor.constraint(
+                    equalTo: view.leadingAnchor,
+                    constant: 20
+                ),
+                nicknameTextField.trailingAnchor.constraint(
+                    equalTo: view.trailingAnchor,
+                    constant: -20
+                ),
+                nicknameTextField.heightAnchor.constraint(equalToConstant: 40),
+                
+                textButton.topAnchor.constraint(equalTo: nicknameTextField.bottomAnchor, constant: 20),
+                textButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                textButton.heightAnchor.constraint(equalToConstant: 44),
+                textButton.widthAnchor.constraint(equalToConstant: 300),
             ]
         )
     }
@@ -107,6 +151,22 @@ class DetailViewController: UIViewController {
             // navigationController가 설정되어 있으면
         } else {
             // navigationController를 pop
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @objc func textButtonTapped() {
+        if let nickname = nicknameTextField.text {
+            // 델리게이트로 데이터 넘기기
+            delegate?.dataBind(nickname: nickname)
+            
+            // 클로저로 데이터 넘기기
+            completionHandler?(nickname)
+        }
+        
+        if self.navigationController == nil {
+            self.dismiss(animated: true)
+        } else {
             self.navigationController?.popViewController(animated: true)
         }
     }

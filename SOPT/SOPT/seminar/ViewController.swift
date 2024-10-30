@@ -7,6 +7,11 @@
 
 import UIKit
 
+// 프로토콜을 연관값으로 정의
+protocol NicknameDelegate: AnyObject {
+    func dataBind(nickname: String)
+}
+
 class ViewController: UIViewController {
     // 클로저를 사용하여 선언과 동시에 초기화
     
@@ -75,6 +80,15 @@ class ViewController: UIViewController {
         return modeSwitch
     }()
     
+    private let nicknameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "나의 닉네임"
+        label.font = .systemFont(ofSize: 16)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
     // 뷰가 메모리에 로드된 후 호출되는 메소드
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +107,7 @@ class ViewController: UIViewController {
     // 각 컴포넌트의 프레임 기반 레이아웃을 비활성화하고, 오토 레이아웃 사용
     // 기본 뷰에 각 컴포넌트 추가
     private func setUI() {
-        [titleLabel, titleTextField, contentTextView, nextButton, toggleSwitch].forEach {
+        [titleLabel, titleTextField, contentTextView, nextButton, toggleSwitch, nicknameLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview($0)
         }
@@ -154,6 +168,12 @@ class ViewController: UIViewController {
                 nextButton.heightAnchor.constraint(equalToConstant: 50),
                 nextButton.widthAnchor.constraint(equalToConstant: 100),
                 
+                nicknameLabel.topAnchor.constraint(
+                    equalTo: nextButton.bottomAnchor,
+                    constant: 20
+                ),
+                nicknameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
             ]
         )
     }
@@ -169,6 +189,18 @@ class ViewController: UIViewController {
     
     private func transitionToNextViewController() {
         let nextViewController = DetailViewController()
+        
+        // 델리게이트 설정: nextViewController 객체 생성한 후 필수 작업
+        // nextViewController.delegate = self
+        
+        // 클로저 설정
+        // 순환 참조로 인한 메모리 누수 방지하기 위해 weak 사용
+        // parameter: nickname, return void (화살표 없음)
+        // in은 입력 파라미터와 실행 블록을 구분하는 역할
+        nextViewController.completionHandler = { [weak self] nickname in
+            guard let self else { return }
+            self.nicknameLabel.text = nickname
+        }
         
         // guard let으로 옵셔널 값을 안전하게 추출
         guard let title = titleTextField.text,
@@ -207,5 +239,15 @@ class ViewController: UIViewController {
     
     @objc func switchToggled() {
         self.updateUI()
+    }
+}
+
+// extension은 class 밖에다 선언해야 함
+// 이미 존재하는 클래스, 프로토콜 등에 새로운 기능을 추가하는 용도
+extension ViewController: NicknameDelegate {
+    // 프로토콜에 대충 언급만 해뒀던 dataBind() 메소드 바디 구현
+    func dataBind(nickname: String) {
+        guard !nickname.isEmpty else { return }
+        self.nicknameLabel.text = nickname
     }
 }

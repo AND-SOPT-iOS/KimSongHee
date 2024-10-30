@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  MY-SOPT-Seminar
+//  SOPT
 //
 //  Created by 김송희 on 10/11/24.
 //
@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         // Root View Controller 설정
-        let navigationController = UINavigationController(rootViewController: ViewController())
+        let navigationController = UINavigationController(rootViewController: TossViewController())
         self.window?.rootViewController = navigationController
         
         // Key Window로 표시

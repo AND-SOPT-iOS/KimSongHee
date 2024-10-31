@@ -35,7 +35,7 @@ class RecommendViewController: UIViewController {
         collectionView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(cellHeight)
-            $0.width.equalTo(200)
+            $0.width.equalToSuperview()
         }
     }
     
@@ -57,8 +57,8 @@ class RecommendViewController: UIViewController {
             $0.delegate = self
             $0.dataSource = self
             
-            // Paging이 안 됩니다...
-            $0.isPagingEnabled = true
+            $0.showsHorizontalScrollIndicator = false
+            $0.decelerationRate = UIScrollView.DecelerationRate.fast
         }
     }
     
@@ -114,3 +114,23 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// 자연스러운 paging을 위하여
+extension RecommendViewController: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        // 셀의 너비와 간격을 포함한 전체 크기 계산
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        // targetContentOffset.x를 기준으로 현재 인덱스 계산
+        let targetIndex = round((targetContentOffset.pointee.x + scrollView.contentInset.left) / cellWidthIncludingSpacing)
+        
+        // targetContentOffset을 새로운 위치로 설정
+        let xOffset = targetIndex * cellWidthIncludingSpacing - scrollView.contentInset.left
+        targetContentOffset.pointee = CGPoint(x: xOffset, y: targetContentOffset.pointee.y)
+    }
+}

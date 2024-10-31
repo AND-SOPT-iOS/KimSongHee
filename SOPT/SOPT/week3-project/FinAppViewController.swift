@@ -13,8 +13,8 @@ class FinAppViewController: UIViewController {
     private var contentView = UIView()
     
     private let recommendViewController = RecommendViewController()
-    /*private let editorPickView = UICollectionView()
-    private let paidView = UICollectionView()
+    private let editorPickViewController = EditorPickViewController()
+    /*private let paidView = UICollectionView()
     private let freeView = UICollectionView()*/
 
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class FinAppViewController: UIViewController {
     private func setHierarchy() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(recommendViewController.view)
+        contentView.addSubviews(recommendViewController.view, editorPickViewController.view)
     }
 
     private func setLayout() {
@@ -53,8 +53,16 @@ class FinAppViewController: UIViewController {
         }
         
         recommendViewController.view.snp.makeConstraints{
-            $0.edges.equalTo(contentView)
-            $0.width.equalTo(contentView)
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(350)
+        }
+        
+        editorPickViewController.view.snp.makeConstraints{
+            $0.top.equalTo(recommendViewController.view.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(500)
+            $0.bottom.equalToSuperview().offset(-20)
         }
 
     }

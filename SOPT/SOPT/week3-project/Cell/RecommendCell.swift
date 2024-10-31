@@ -65,7 +65,7 @@ class RecommendCell: UICollectionViewCell {
         }
         
         recommendImageView.snp.makeConstraints {
-            $0.top.equalTo(subtitleLabel.snp.bottom).offset(15)
+            $0.top.equalTo(subtitleLabel.snp.bottom).offset(5)
             $0.height.equalTo(250)
             $0.width.equalTo(350)
             $0.leading.equalToSuperview()

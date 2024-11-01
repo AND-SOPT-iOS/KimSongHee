@@ -171,8 +171,7 @@ class TossViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        // 뒤로가기(검색) 버튼 눌렀을 때 동작
-        // self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

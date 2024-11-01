@@ -1,21 +1,20 @@
 //
-//  RecommendViewController.swift
+//  PaidAppViewController.swift
 //  SOPT
 //
-//  Created by 김송희 on 10/31/24.
+//  Created by 김송희 on 11/1/24.
 //
 
 import UIKit
 
-class EssentialAppViewController: UIViewController {
+class PaidAppViewController: UIViewController {
     
     final let cellHeight: CGFloat = 70
     final let contentInterSpacing: CGFloat = 8 // 셀 사이의 간격
     final let contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20) // 좌우 여백
     
-    private var essentialAppList = EssentialApp.mockData
-    private let essentialAppHeaderView = EssentialAppHeaderView()
-    // private let paidAppHeaderView = PaidAppHeaderView()
+    private var paidAppList = PaidApp.mockData
+    private let paidAppHeaderView = RankAppHeaderView()
     
     private lazy var collectionView = UICollectionView(
         frame: .zero,
@@ -23,7 +22,7 @@ class EssentialAppViewController: UIViewController {
     )
     
     // 그룹으로 나눈 데이터 배열 생성
-    private var groupedData: [[EssentialApp]] = []
+    private var groupedData: [[PaidApp]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,39 +32,35 @@ class EssentialAppViewController: UIViewController {
         setCollectionView()
     }
     
-    // essentialAppList를 3개씩 묶어 groupedData 배열에 추가
+    // paidAppList를 3개씩 묶어 groupedData 배열에 추가
     private func groupData() {
         let groupSize = 3
-        for index in stride(from: 0, to: essentialAppList.count, by: groupSize) {
-            let group = Array(essentialAppList[index..<min(index + groupSize, essentialAppList.count)])
+        for index in stride(from: 0, to: paidAppList.count, by: groupSize) {
+            let group = Array(paidAppList[index..<min(index + groupSize, paidAppList.count)])
             groupedData.append(group)
         }
     }
     
     private func setUI() {
-        self.view.addSubviews(essentialAppHeaderView, collectionView)
+        self.view.addSubviews(paidAppHeaderView, collectionView)
     }
     
     private func setLayout() {
-        essentialAppHeaderView.snp.makeConstraints {
+        paidAppHeaderView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(60)
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(essentialAppHeaderView.snp.bottom).offset(20)
+            $0.top.equalTo(paidAppHeaderView.snp.bottom).offset(10)
             $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(250)
         }
-        
-        /*paidAppHeaderView.snp.makeConstraints{
-            $0.top.equalTo(collectionView.snp.bottom).offset(10)
-            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(40)
-        }*/
     }
     
     private func setCollectionView() {
+        
+        paidAppHeaderView.bind(title: "유료 순위")
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
@@ -79,20 +74,20 @@ class EssentialAppViewController: UIViewController {
         collectionView.do {
             $0.setCollectionViewLayout(flowLayout, animated: false)
             $0.register(
-                EssentialAppCell.self,
-                forCellWithReuseIdentifier: EssentialAppCell.identifier
+                RankAppCell.self,
+                forCellWithReuseIdentifier: RankAppCell.identifier
             )
             $0.delegate = self
             $0.dataSource = self
             
-            $0.isPagingEnabled = true // 한 번에 한 그룹씩 넘기기 위한 페이징 활성화
+            $0.isPagingEnabled = true
             $0.showsHorizontalScrollIndicator = false
             }
     }
     
 }
 
-extension EssentialAppViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PaidAppViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     // 그룹의 수만큼 섹션 설정
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -112,19 +107,19 @@ extension EssentialAppViewController: UICollectionViewDelegate, UICollectionView
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: EssentialAppCell.identifier,
+            withReuseIdentifier: RankAppCell.identifier,
             for: indexPath
-        ) as? EssentialAppCell else {
+        ) as? RankAppCell else {
             return UICollectionViewCell()
         }
         
         let item = groupedData[indexPath.section][indexPath.item]
-        cell.essentialAppBind(item)
+        cell.paidAppBind(item)
         return cell
     }
 }
 
-extension EssentialAppViewController: UICollectionViewDelegateFlowLayout {
+extension PaidAppViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -151,3 +146,4 @@ extension EssentialAppViewController: UICollectionViewDelegateFlowLayout {
         return contentInset
     }
 }
+

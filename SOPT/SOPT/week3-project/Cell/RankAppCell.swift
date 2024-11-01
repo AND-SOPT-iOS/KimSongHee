@@ -1,5 +1,5 @@
 //
-//  EssentialAppCell.swift
+//  RankAppCell.swift
 //  SOPT
 //
 //  Created by 김송희 on 11/1/24.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class EssentialAppCell: UICollectionViewCell {
+class RankAppCell: UICollectionViewCell {
     
-    static let identifier = "EssentialAppCell"
+    static let identifier = "RankAppCell"
     
     private let appIcon = UIImageView().then {
         $0.layer.borderWidth = 1
@@ -17,6 +17,11 @@ class EssentialAppCell: UICollectionViewCell {
         $0.layer.cornerRadius = 15
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFit
+    }
+    
+    private let ranking = UILabel().then {
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 20, weight: .semibold)
     }
     
     private let verticalStackView = UIStackView().then {
@@ -59,7 +64,7 @@ class EssentialAppCell: UICollectionViewCell {
     }
     
     private func setUI() {
-        addSubviews(appIcon, verticalStackView, downloadButton)
+        addSubviews(appIcon, ranking, verticalStackView, downloadButton)
         verticalStackView.addArrangedSubviews(titleLabel, subtitleLabel)
     }
     
@@ -70,32 +75,40 @@ class EssentialAppCell: UICollectionViewCell {
             $0.size.equalTo(60)
         }
         
-        verticalStackView.snp.makeConstraints{
-            $0.centerY.equalTo(appIcon.snp.centerY)
+        ranking.snp.makeConstraints{
+            $0.top.equalToSuperview()
             $0.leading.equalTo(appIcon.snp.trailing).offset(10)
+        }
+        
+        verticalStackView.snp.makeConstraints{
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(ranking.snp.trailing).offset(10)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-8)
         }
         
         downloadButton.snp.makeConstraints{
             $0.centerY.equalTo(appIcon.snp.centerY)
             $0.trailing.equalToSuperview()
-            $0.width.equalTo(70)
+            $0.width.equalTo(80)
             $0.height.equalTo(35)
         }
     }
     
-    func essentialAppBind(_ mockData: EssentialApp) {
-        appIcon.image = mockData.icon
-        titleLabel.text = mockData.title
-        subtitleLabel.text = mockData.subtitle
-    }
-    
     func paidAppBind(_ mockData: PaidApp) {
         appIcon.image = mockData.icon
+        ranking.text = mockData.ranking
         titleLabel.text = mockData.title
         subtitleLabel.text = mockData.subtitle
         downloadButton.setTitle(mockData.price, for: .normal)
         downloadButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
     }
     
+    func freeAppBind(_ mockData: FreeApp) {
+        appIcon.image = mockData.icon
+        ranking.text = mockData.ranking
+        titleLabel.text = mockData.title
+        subtitleLabel.text = mockData.subtitle
+    }
+    
 }
+

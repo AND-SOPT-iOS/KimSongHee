@@ -28,6 +28,13 @@
 		0072737E2CD3F83600F81D44 /* EssentialAppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072737D2CD3F83600F81D44 /* EssentialAppHeaderView.swift */; };
 		007273802CD3FA4F00F81D44 /* EssentialAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */; };
 		007273822CD3FA6500F81D44 /* EssentialAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273812CD3FA6500F81D44 /* EssentialAppModel.swift */; };
+		007273862CD4957400F81D44 /* RankAppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273852CD4957400F81D44 /* RankAppHeaderView.swift */; };
+		007273882CD497B900F81D44 /* PaidAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273872CD497B900F81D44 /* PaidAppModel.swift */; };
+		0072738A2CD4A93200F81D44 /* PaidAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273892CD4A93200F81D44 /* PaidAppViewController.swift */; };
+		0072738C2CD4AD2A00F81D44 /* RankAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072738B2CD4AD2A00F81D44 /* RankAppCell.swift */; };
+		0072738E2CD4B10500F81D44 /* FreeAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072738D2CD4B10500F81D44 /* FreeAppViewController.swift */; };
+		007273902CD4B1AA00F81D44 /* FreeAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */; };
+		007273922CD4B81B00F81D44 /* PopularChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273912CD4B81B00F81D44 /* PopularChartViewController.swift */; };
 		0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073BF362CBFA208000E6314 /* ColorsViewController.swift */; };
 		0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0073BF392CBFA2A1000E6314 /* SnapKit */; };
 		007B753A2CC87A0200155F27 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B75392CC87A0200155F27 /* StatView.swift */; };
@@ -69,6 +76,13 @@
 		0072737D2CD3F83600F81D44 /* EssentialAppHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppHeaderView.swift; sourceTree = "<group>"; };
 		0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppCell.swift; sourceTree = "<group>"; };
 		007273812CD3FA6500F81D44 /* EssentialAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppModel.swift; sourceTree = "<group>"; };
+		007273852CD4957400F81D44 /* RankAppHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankAppHeaderView.swift; sourceTree = "<group>"; };
+		007273872CD497B900F81D44 /* PaidAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidAppModel.swift; sourceTree = "<group>"; };
+		007273892CD4A93200F81D44 /* PaidAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidAppViewController.swift; sourceTree = "<group>"; };
+		0072738B2CD4AD2A00F81D44 /* RankAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankAppCell.swift; sourceTree = "<group>"; };
+		0072738D2CD4B10500F81D44 /* FreeAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppViewController.swift; sourceTree = "<group>"; };
+		0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppModel.swift; sourceTree = "<group>"; };
+		007273912CD4B81B00F81D44 /* PopularChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartViewController.swift; sourceTree = "<group>"; };
 		0073BF362CBFA208000E6314 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		007B75392CC87A0200155F27 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		007B753B2CC8853800155F27 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +160,9 @@
 			children = (
 				00D3665E2CD3720900F40F42 /* RecommendViewController.swift */,
 				007273792CD3ED5100F81D44 /* EssentialAppViewController.swift */,
+				007273892CD4A93200F81D44 /* PaidAppViewController.swift */,
+				0072738D2CD4B10500F81D44 /* FreeAppViewController.swift */,
+				007273912CD4B81B00F81D44 /* PopularChartViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -154,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				0072737D2CD3F83600F81D44 /* EssentialAppHeaderView.swift */,
+				007273852CD4957400F81D44 /* RankAppHeaderView.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -209,6 +227,8 @@
 			children = (
 				00D366602CD3777C00F40F42 /* RecommendModel.swift */,
 				007273812CD3FA6500F81D44 /* EssentialAppModel.swift */,
+				007273872CD497B900F81D44 /* PaidAppModel.swift */,
+				0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +238,7 @@
 			children = (
 				00D366642CD379B200F40F42 /* RecommendCell.swift */,
 				0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */,
+				0072738B2CD4AD2A00F81D44 /* RankAppCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -333,16 +354,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */,
+				007273862CD4957400F81D44 /* RankAppHeaderView.swift in Sources */,
 				0010384E2CD22EF2007C2085 /* PhotoCell.swift in Sources */,
 				007EC29C2CB973DB005ACF95 /* ViewController.swift in Sources */,
+				0072738C2CD4AD2A00F81D44 /* RankAppCell.swift in Sources */,
+				0072738A2CD4A93200F81D44 /* PaidAppViewController.swift in Sources */,
 				004986432CC813D6006CD84C /* DescriptionView.swift in Sources */,
 				00401EE62CC0DB9D0078F3FF /* UIView+.swift in Sources */,
+				0072738E2CD4B10500F81D44 /* FreeAppViewController.swift in Sources */,
 				007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */,
 				0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */,
 				004986452CC81B36006CD84C /* DeveloperView.swift in Sources */,
 				0072737E2CD3F83600F81D44 /* EssentialAppHeaderView.swift in Sources */,
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,
 				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
+				007273882CD497B900F81D44 /* PaidAppModel.swift in Sources */,
 				007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */,
 				00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */,
 				001038442CD225CA007C2085 /* DownloadState.swift in Sources */,
@@ -356,6 +382,8 @@
 				007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */,
 				00D3665D2CD35D4400F40F42 /* FinAppViewController.swift in Sources */,
 				00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */,
+				007273902CD4B1AA00F81D44 /* FreeAppModel.swift in Sources */,
+				007273922CD4B81B00F81D44 /* PopularChartViewController.swift in Sources */,
 				0010384A2CD22CC2007C2085 /* Photo.swift in Sources */,
 				00D366652CD379B200F40F42 /* RecommendCell.swift in Sources */,
 				0049863F2CC8013A006CD84C /* VersionViewController.swift in Sources */,

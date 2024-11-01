@@ -7,39 +7,37 @@
 
 import UIKit
 
-class FinAppViewController: UIViewController {
+class FinAppViewController: UIViewController, FreeAppViewControllerDelegate {
     
     private let scrollView = UIScrollView()
     private var contentView = UIView()
     
     private let recommendViewController = RecommendViewController()
-    private let editorPickViewController = EssentialAppViewController()
-    /*private let paidView = UICollectionView()
-    private let freeView = UICollectionView()*/
-
+    private let essentialAppViewController = EssentialAppViewController()
+    private let paidAppViewController = PaidAppViewController()
+    private let freeAppViewController = FreeAppViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavigationBar()
         setStyle()
-        setUI()
         setHierarchy()
         setLayout()
+        
+        freeAppViewController.delegate = self
         
     }
     
     private func setStyle() {
         self.view.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
     }
-    
-    private func setUI() {
 
-    }
-    
     private func setHierarchy() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubviews(recommendViewController.view, editorPickViewController.view)
+        contentView.addSubviews(recommendViewController.view, essentialAppViewController.view, paidAppViewController.view, freeAppViewController.view)
     }
 
     private func setLayout() {
@@ -58,18 +56,36 @@ class FinAppViewController: UIViewController {
             $0.height.equalTo(350)
         }
         
-        editorPickViewController.view.snp.makeConstraints{
+        essentialAppViewController.view.snp.makeConstraints{
             $0.top.equalTo(recommendViewController.view.snp.bottom).offset(20)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(500)
+            $0.height.equalTo(350)
+        }
+        
+        paidAppViewController.view.snp.makeConstraints{
+            $0.top.equalTo(essentialAppViewController.view.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(350)
+        }
+        
+        freeAppViewController.view.snp.makeConstraints{
+            $0.top.equalTo(paidAppViewController.view.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(350)
             $0.bottom.equalToSuperview().offset(-20)
         }
+
 
     }
 
     
     @objc func backButtonTapped() {
         // self.navigationController?.popViewController(animated: true)
+    }
+    
+    func didSelectToss() {
+        let tossViewController = TossViewController()
+        navigationController?.pushViewController(tossViewController, animated: true)
     }
 
 }

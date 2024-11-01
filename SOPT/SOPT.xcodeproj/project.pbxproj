@@ -24,7 +24,10 @@
 		004986412CC80962006CD84C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004986402CC80962006CD84C /* PreviewView.swift */; };
 		004986432CC813D6006CD84C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004986422CC813D6006CD84C /* DescriptionView.swift */; };
 		004986452CC81B36006CD84C /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004986442CC81B36006CD84C /* DeveloperView.swift */; };
-		0072737A2CD3ED5100F81D44 /* EditorPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273792CD3ED5100F81D44 /* EditorPickViewController.swift */; };
+		0072737A2CD3ED5100F81D44 /* EssentialAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273792CD3ED5100F81D44 /* EssentialAppViewController.swift */; };
+		0072737E2CD3F83600F81D44 /* EssentialAppHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072737D2CD3F83600F81D44 /* EssentialAppHeaderView.swift */; };
+		007273802CD3FA4F00F81D44 /* EssentialAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */; };
+		007273822CD3FA6500F81D44 /* EssentialAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273812CD3FA6500F81D44 /* EssentialAppModel.swift */; };
 		0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073BF362CBFA208000E6314 /* ColorsViewController.swift */; };
 		0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0073BF392CBFA2A1000E6314 /* SnapKit */; };
 		007B753A2CC87A0200155F27 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B75392CC87A0200155F27 /* StatView.swift */; };
@@ -62,7 +65,10 @@
 		004986402CC80962006CD84C /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		004986422CC813D6006CD84C /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		004986442CC81B36006CD84C /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
-		007273792CD3ED5100F81D44 /* EditorPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorPickViewController.swift; sourceTree = "<group>"; };
+		007273792CD3ED5100F81D44 /* EssentialAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppViewController.swift; sourceTree = "<group>"; };
+		0072737D2CD3F83600F81D44 /* EssentialAppHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppHeaderView.swift; sourceTree = "<group>"; };
+		0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppCell.swift; sourceTree = "<group>"; };
+		007273812CD3FA6500F81D44 /* EssentialAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppModel.swift; sourceTree = "<group>"; };
 		0073BF362CBFA208000E6314 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		007B75392CC87A0200155F27 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		007B753B2CC8853800155F27 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +145,17 @@
 			isa = PBXGroup;
 			children = (
 				00D3665E2CD3720900F40F42 /* RecommendViewController.swift */,
-				007273792CD3ED5100F81D44 /* EditorPickViewController.swift */,
+				007273792CD3ED5100F81D44 /* EssentialAppViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0072737C2CD3F81400F81D44 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				0072737D2CD3F83600F81D44 /* EssentialAppHeaderView.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		007EC28B2CB973DB005ACF95 = {
@@ -182,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				00D3665C2CD35D4400F40F42 /* FinAppViewController.swift */,
+				0072737C2CD3F81400F81D44 /* Header */,
 				00D366622CD378E000F40F42 /* Model */,
 				00D366632CD3799100F40F42 /* Cell */,
 				0072737B2CD3ED5800F81D44 /* ViewController */,
@@ -193,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				00D366602CD3777C00F40F42 /* RecommendModel.swift */,
+				007273812CD3FA6500F81D44 /* EssentialAppModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				00D366642CD379B200F40F42 /* RecommendCell.swift */,
+				0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -323,6 +340,7 @@
 				007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */,
 				0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */,
 				004986452CC81B36006CD84C /* DeveloperView.swift in Sources */,
+				0072737E2CD3F83600F81D44 /* EssentialAppHeaderView.swift in Sources */,
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,
 				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
 				007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */,
@@ -330,10 +348,11 @@
 				001038442CD225CA007C2085 /* DownloadState.swift in Sources */,
 				001038402CD225A4007C2085 /* ChartViewController.swift in Sources */,
 				00D366612CD3777C00F40F42 /* RecommendModel.swift in Sources */,
+				007273822CD3FA6500F81D44 /* EssentialAppModel.swift in Sources */,
 				007B753A2CC87A0200155F27 /* StatView.swift in Sources */,
 				004986412CC80962006CD84C /* PreviewView.swift in Sources */,
 				001038422CD225B7007C2085 /* App.swift in Sources */,
-				0072737A2CD3ED5100F81D44 /* EditorPickViewController.swift in Sources */,
+				0072737A2CD3ED5100F81D44 /* EssentialAppViewController.swift in Sources */,
 				007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */,
 				00D3665D2CD35D4400F40F42 /* FinAppViewController.swift in Sources */,
 				00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */,
@@ -343,6 +362,7 @@
 				0010383E2CD22590007C2085 /* ChartCell.swift in Sources */,
 				00127AEE2CC1EBC200A606C6 /* InfoView.swift in Sources */,
 				007B753E2CC8870800155F27 /* ReviewView.swift in Sources */,
+				007273802CD3FA4F00F81D44 /* EssentialAppCell.swift in Sources */,
 				0049863D2CC7F68E006CD84C /* NoticeView.swift in Sources */,
 				00FF73382CC1E076001218BD /* TitleView.swift in Sources */,
 			);

@@ -1,75 +1,97 @@
-//
-//  RecommendViewController.swift
-//  SOPT
-//
-//  Created by 김송희 on 10/31/24.
-//
-
 import UIKit
 
-class RecommendViewController: UIViewController {
+class EssentialAppViewController: UIViewController {
     
-    final let cellHeight: CGFloat = 350
+    final let cellHeight: CGFloat = 70
     final let contentInterSpacing: CGFloat = 8 // 셀 사이의 간격
     final let contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20) // 좌우 여백
     
-    private var recommendList = Recommend.mockData
+    private var essentialAppList = EssentialApp.mockData
+    
+    private let headerView = EssentialAppHeaderView()
     
     private lazy var collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
+    // 그룹으로 나눈 데이터 배열 생성
+    private var groupedData: [[EssentialApp]] = []
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()        
+        groupData() // 데이터를 그룹으로 나누기
         setUI()
         setLayout()
         setCollectionView()
     }
     
+    // essentialAppList를 3개씩 묶어 groupedData 배열에 추가
+    private func groupData() {
+        let groupSize = 3
+        for index in stride(from: 0, to: essentialAppList.count, by: groupSize) {
+            let group = Array(essentialAppList[index..<min(index + groupSize, essentialAppList.count)])
+            groupedData.append(group)
+        }
+    }
+    
     private func setUI() {
-        self.view.addSubview(collectionView)
+        self.view.addSubviews(headerView, collectionView)
     }
     
     private func setLayout() {
-        collectionView.snp.makeConstraints {
+        headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(cellHeight)
-            $0.width.equalToSuperview()
+            $0.height.equalTo(60)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(10)
+            $0.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
         }
     }
     
     private func setCollectionView() {
+        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = .zero
-        flowLayout.minimumInteritemSpacing = contentInterSpacing
+        flowLayout.minimumLineSpacing = contentInterSpacing
         
+        // 그룹당 3개의 셀이 보이도록 셀 너비 조정
         let cellWidth = UIScreen.main.bounds.width - 40
         flowLayout.itemSize = .init(width: cellWidth, height: cellHeight)
         
         collectionView.do {
             $0.setCollectionViewLayout(flowLayout, animated: false)
             $0.register(
-                RecommendCell.self,
-                forCellWithReuseIdentifier: RecommendCell.identifier
+                EssentialAppCell.self,
+                forCellWithReuseIdentifier: EssentialAppCell.identifier
             )
             $0.delegate = self
             $0.dataSource = self
             
+            $0.isPagingEnabled = true // 한 번에 한 그룹씩 넘기기 위한 페이징 활성화
             $0.showsHorizontalScrollIndicator = false
-            $0.decelerationRate = UIScrollView.DecelerationRate.fast
         }
     }
     
 }
 
-extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension EssentialAppViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    // 그룹의 수만큼 섹션 설정
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return groupedData.count
+    }
+    
+    // 각 섹션은 3개의 셀을 가지도록 설정
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return recommendList.count
+        return groupedData[section].count
     }
     
     func collectionView(
@@ -77,24 +99,27 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: RecommendCell.identifier,
+            withReuseIdentifier: EssentialAppCell.identifier,
             for: indexPath
-        ) as? RecommendCell else {
+        ) as? EssentialAppCell else {
             return UICollectionViewCell()
         }
         
-        cell.bind(recommendList[indexPath.row])
+        let item = groupedData[indexPath.section][indexPath.item]
+        cell.bind(item)
         return cell
     }
 }
 
-extension RecommendViewController: UICollectionViewDelegateFlowLayout {
+extension EssentialAppViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 40, height: cellHeight)
+        let cellWidth = (UIScreen.main.bounds.width - 40)
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(
@@ -111,26 +136,5 @@ extension RecommendViewController: UICollectionViewDelegateFlowLayout {
         insetForSectionAt section: Int
     ) -> UIEdgeInsets {
         return contentInset
-    }
-}
-
-// 자연스러운 paging을 위하여
-extension RecommendViewController: UIScrollViewDelegate {
-    func scrollViewWillEndDragging(
-        _ scrollView: UIScrollView,
-        withVelocity velocity: CGPoint,
-        targetContentOffset: UnsafeMutablePointer<CGPoint>
-    ) {
-        guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        
-        // 셀의 너비와 간격을 포함한 전체 크기 계산
-        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-        
-        // targetContentOffset.x를 기준으로 현재 인덱스 계산
-        let targetIndex = round((targetContentOffset.pointee.x + scrollView.contentInset.left) / cellWidthIncludingSpacing)
-        
-        // targetContentOffset을 새로운 위치로 설정
-        let xOffset = targetIndex * cellWidthIncludingSpacing - scrollView.contentInset.left
-        targetContentOffset.pointee = CGPoint(x: xOffset, y: targetContentOffset.pointee.y)
     }
 }

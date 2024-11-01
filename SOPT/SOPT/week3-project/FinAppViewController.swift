@@ -13,7 +13,7 @@ class FinAppViewController: UIViewController {
     private var contentView = UIView()
     
     private let recommendViewController = RecommendViewController()
-    private let editorPickViewController = EditorPickViewController()
+    private let editorPickViewController = EssentialAppViewController()
     /*private let paidView = UICollectionView()
     private let freeView = UICollectionView()*/
 

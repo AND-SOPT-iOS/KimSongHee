@@ -38,6 +38,8 @@
 		007273942CD4D17400F81D44 /* PopularChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273932CD4D17400F81D44 /* PopularChartCell.swift */; };
 		007273972CD4DC1B00F81D44 /* PreviewImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273962CD4DC1B00F81D44 /* PreviewImageModel.swift */; };
 		0072739A2CD4DE0E00F81D44 /* PreviewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273992CD4DE0E00F81D44 /* PreviewImageCell.swift */; };
+		0072739C2CD4E7DF00F81D44 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072739B2CD4E7DF00F81D44 /* ReviewModel.swift */; };
+		0072739E2CD4EA7A00F81D44 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072739D2CD4EA7A00F81D44 /* ReviewCell.swift */; };
 		0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073BF362CBFA208000E6314 /* ColorsViewController.swift */; };
 		0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0073BF392CBFA2A1000E6314 /* SnapKit */; };
 		007B753A2CC87A0200155F27 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B75392CC87A0200155F27 /* StatView.swift */; };
@@ -89,6 +91,8 @@
 		007273932CD4D17400F81D44 /* PopularChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartCell.swift; sourceTree = "<group>"; };
 		007273962CD4DC1B00F81D44 /* PreviewImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageModel.swift; sourceTree = "<group>"; };
 		007273992CD4DE0E00F81D44 /* PreviewImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageCell.swift; sourceTree = "<group>"; };
+		0072739B2CD4E7DF00F81D44 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
+		0072739D2CD4EA7A00F81D44 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		0073BF362CBFA208000E6314 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		007B75392CC87A0200155F27 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		007B753B2CC8853800155F27 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				007273962CD4DC1B00F81D44 /* PreviewImageModel.swift */,
+				0072739B2CD4E7DF00F81D44 /* ReviewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				007273992CD4DE0E00F81D44 /* PreviewImageCell.swift */,
+				0072739D2CD4EA7A00F81D44 /* ReviewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
 				007273882CD497B900F81D44 /* PaidAppModel.swift in Sources */,
 				007EC29A2CB973DB005ACF95 /* SceneDelegate.swift in Sources */,
+				0072739C2CD4E7DF00F81D44 /* ReviewModel.swift in Sources */,
 				00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */,
 				001038442CD225CA007C2085 /* DownloadState.swift in Sources */,
 				001038402CD225A4007C2085 /* ChartViewController.swift in Sources */,
@@ -408,6 +415,7 @@
 				0072737A2CD3ED5100F81D44 /* EssentialAppViewController.swift in Sources */,
 				007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */,
 				00D3665D2CD35D4400F40F42 /* FinAppViewController.swift in Sources */,
+				0072739E2CD4EA7A00F81D44 /* ReviewCell.swift in Sources */,
 				00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */,
 				007273972CD4DC1B00F81D44 /* PreviewImageModel.swift in Sources */,
 				007273902CD4B1AA00F81D44 /* FreeAppModel.swift in Sources */,

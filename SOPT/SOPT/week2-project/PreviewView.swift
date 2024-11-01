@@ -88,13 +88,6 @@ class PreviewView: UIView {
             $0.width.equalToSuperview()
         }
         
-        /*previewImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(previewTitleLabel.snp.bottom).offset(10)
-            $0.width.equalTo(245)
-            $0.height.equalTo(520)
-        }*/
-        
         iPhoneLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(collectionView.snp.bottom).offset(10)

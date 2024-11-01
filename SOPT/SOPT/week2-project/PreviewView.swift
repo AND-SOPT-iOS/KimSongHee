@@ -10,13 +10,20 @@ import UIKit
 class PreviewView: UIView {
 
     private let previewTitleLabel = UILabel()
-    private let previewImageView = UIImageView()
     private let iPhoneLabel = UILabel()
+    
+    private var PreviewImageList = PreviewImage.mockData
+    
+    private lazy var collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    )
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
         setUI()
+        setCollectionView()
         setLayout()
     }
     
@@ -27,13 +34,6 @@ class PreviewView: UIView {
     private func setStyle() {
         previewTitleLabel.text = "미리 보기"
         previewTitleLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
-        
-        previewImageView.image = UIImage(named: "preview_sample") // asset에 파일이 있어야 함
-        previewImageView.contentMode = .scaleAspectFit // 비율 유지하면서 View에 딱 들어맞도록
-        previewImageView.layer.cornerRadius = 25
-        previewImageView.clipsToBounds = true // 뷰의 경계를 넘으면 잘라냄
-        previewImageView.layer.borderWidth = 0.5
-        previewImageView.layer.borderColor = UIColor.clear.cgColor
         
         let iPhoneIcon = UIImage(systemName: "iphone")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
         let iPhoneIconAttachment = NSTextAttachment()
@@ -50,27 +50,127 @@ class PreviewView: UIView {
     }
     
     private func setUI() {
-        addSubviews(previewTitleLabel, previewImageView, iPhoneLabel)
+        addSubviews(previewTitleLabel, collectionView, iPhoneLabel)
+    }
+    
+    private func setCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.sectionInset = .zero
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.itemSize = .init(width: 245, height: 520)
+        
+        collectionView.do {
+            $0.setCollectionViewLayout(flowLayout, animated: false)
+            $0.register(
+                PreviewImageCell.self,
+                forCellWithReuseIdentifier: PreviewImageCell.identifier
+            )
+            $0.delegate = self
+            $0.dataSource = self
+                        
+            $0.showsHorizontalScrollIndicator = false
+            $0.decelerationRate = UIScrollView.DecelerationRate.fast
+        }
     }
     
     private func setLayout() {
+        
         previewTitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalToSuperview()
         }
         
-        previewImageView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.top.equalTo(previewTitleLabel.snp.bottom).offset(10)
+            $0.height.equalTo(520)
+            $0.width.equalToSuperview()
+        }
+        
+        /*previewImageView.snp.makeConstraints {
             $0.leading.equalToSuperview()
             $0.top.equalTo(previewTitleLabel.snp.bottom).offset(10)
             $0.width.equalTo(245)
             $0.height.equalTo(520)
-        }
+        }*/
         
         iPhoneLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.top.equalTo(previewImageView.snp.bottom).offset(10)
+            $0.top.equalTo(collectionView.snp.bottom).offset(10)
             $0.bottom.equalToSuperview()
         }
     }
-
 }
+
+extension PreviewView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return PreviewImageList.count
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: PreviewImageCell.identifier,
+            for: indexPath
+        ) as? PreviewImageCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.bind(PreviewImageList[indexPath.row])
+        return cell
+    }
+}
+
+extension PreviewView: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: 245, height: 520)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
+// 자연스러운 paging을 위하여
+extension PreviewView: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView,
+        withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>
+    ) {
+        guard let layout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        
+        // 셀의 너비와 간격을 포함한 전체 크기 계산
+        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
+        
+        // targetContentOffset.x를 기준으로 현재 인덱스 계산
+        let targetIndex = round((targetContentOffset.pointee.x + scrollView.contentInset.left) / cellWidthIncludingSpacing)
+        
+        // targetContentOffset을 새로운 위치로 설정
+        let xOffset = targetIndex * cellWidthIncludingSpacing - scrollView.contentInset.left
+        targetContentOffset.pointee = CGPoint(x: xOffset, y: targetContentOffset.pointee.y)
+    }
+}
+

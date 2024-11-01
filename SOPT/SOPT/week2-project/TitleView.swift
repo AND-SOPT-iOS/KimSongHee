@@ -72,10 +72,10 @@ class TitleView: UIView {
     private func setLayout() {
         
         appIconImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalToSuperview()
-            $0.size.equalTo(130)
+            $0.top.equalToSuperview().offset(10)
             $0.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().offset(10)
+            $0.width.equalTo(130)
         }
         
         appTitleLabel.snp.makeConstraints {

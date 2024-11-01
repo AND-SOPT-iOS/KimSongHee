@@ -36,6 +36,8 @@
 		007273902CD4B1AA00F81D44 /* FreeAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */; };
 		007273922CD4B81B00F81D44 /* PopularChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273912CD4B81B00F81D44 /* PopularChartViewController.swift */; };
 		007273942CD4D17400F81D44 /* PopularChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273932CD4D17400F81D44 /* PopularChartCell.swift */; };
+		007273972CD4DC1B00F81D44 /* PreviewImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273962CD4DC1B00F81D44 /* PreviewImageModel.swift */; };
+		0072739A2CD4DE0E00F81D44 /* PreviewImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273992CD4DE0E00F81D44 /* PreviewImageCell.swift */; };
 		0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073BF362CBFA208000E6314 /* ColorsViewController.swift */; };
 		0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0073BF392CBFA2A1000E6314 /* SnapKit */; };
 		007B753A2CC87A0200155F27 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B75392CC87A0200155F27 /* StatView.swift */; };
@@ -85,6 +87,8 @@
 		0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppModel.swift; sourceTree = "<group>"; };
 		007273912CD4B81B00F81D44 /* PopularChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartViewController.swift; sourceTree = "<group>"; };
 		007273932CD4D17400F81D44 /* PopularChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartCell.swift; sourceTree = "<group>"; };
+		007273962CD4DC1B00F81D44 /* PreviewImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageModel.swift; sourceTree = "<group>"; };
+		007273992CD4DE0E00F81D44 /* PreviewImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageCell.swift; sourceTree = "<group>"; };
 		0073BF362CBFA208000E6314 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		007B75392CC87A0200155F27 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		007B753B2CC8853800155F27 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,22 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		007273952CD4DC0600F81D44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				007273962CD4DC1B00F81D44 /* PreviewImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		007273982CD4DDF200F81D44 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				007273992CD4DE0E00F81D44 /* PreviewImageCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		007EC28B2CB973DB005ACF95 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +269,8 @@
 		00FF73392CC1E087001218BD /* week2-project */ = {
 			isa = PBXGroup;
 			children = (
+				007273982CD4DDF200F81D44 /* Cell */,
+				007273952CD4DC0600F81D44 /* Model */,
 				00401EE12CC0D8FE0078F3FF /* TossViewController.swift */,
 				00FF73372CC1E076001218BD /* TitleView.swift */,
 				00127AED2CC1EBC200A606C6 /* InfoView.swift */,
@@ -370,6 +392,7 @@
 				0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */,
 				004986452CC81B36006CD84C /* DeveloperView.swift in Sources */,
 				0072737E2CD3F83600F81D44 /* EssentialAppHeaderView.swift in Sources */,
+				0072739A2CD4DE0E00F81D44 /* PreviewImageCell.swift in Sources */,
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,
 				00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */,
 				007273882CD497B900F81D44 /* PaidAppModel.swift in Sources */,
@@ -386,6 +409,7 @@
 				007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */,
 				00D3665D2CD35D4400F40F42 /* FinAppViewController.swift in Sources */,
 				00401EE22CC0D8FE0078F3FF /* TossViewController.swift in Sources */,
+				007273972CD4DC1B00F81D44 /* PreviewImageModel.swift in Sources */,
 				007273902CD4B1AA00F81D44 /* FreeAppModel.swift in Sources */,
 				007273922CD4B81B00F81D44 /* PopularChartViewController.swift in Sources */,
 				0010384A2CD22CC2007C2085 /* Photo.swift in Sources */,

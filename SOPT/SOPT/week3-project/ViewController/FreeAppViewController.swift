@@ -20,7 +20,7 @@ class FreeAppViewController: UIViewController {
     final let contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20) // 좌우 여백
     
     private var freeAppList = FreeApp.mockData
-    private let freeAppHeaderView = RankAppHeaderView()
+    let freeAppHeaderView = RankAppHeaderView()
     
     private lazy var collectionView = UICollectionView(
         frame: .zero,
@@ -41,7 +41,7 @@ class FreeAppViewController: UIViewController {
     // paidAppList를 3개씩 묶어 groupedData 배열에 추가
     private func groupData() {
         let groupSize = 3
-        for index in stride(from: 0, to: freeAppList.count, by: groupSize) {
+        for index in stride(from: 0, to: 9, by: groupSize) {
             let group = Array(freeAppList[index..<min(index + groupSize, freeAppList.count)])
             groupedData.append(group)
         }

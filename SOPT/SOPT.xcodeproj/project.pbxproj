@@ -35,6 +35,7 @@
 		0072738E2CD4B10500F81D44 /* FreeAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072738D2CD4B10500F81D44 /* FreeAppViewController.swift */; };
 		007273902CD4B1AA00F81D44 /* FreeAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */; };
 		007273922CD4B81B00F81D44 /* PopularChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273912CD4B81B00F81D44 /* PopularChartViewController.swift */; };
+		007273942CD4D17400F81D44 /* PopularChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007273932CD4D17400F81D44 /* PopularChartCell.swift */; };
 		0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073BF362CBFA208000E6314 /* ColorsViewController.swift */; };
 		0073BF3A2CBFA2A1000E6314 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0073BF392CBFA2A1000E6314 /* SnapKit */; };
 		007B753A2CC87A0200155F27 /* StatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007B75392CC87A0200155F27 /* StatView.swift */; };
@@ -83,6 +84,7 @@
 		0072738D2CD4B10500F81D44 /* FreeAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppViewController.swift; sourceTree = "<group>"; };
 		0072738F2CD4B1AA00F81D44 /* FreeAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppModel.swift; sourceTree = "<group>"; };
 		007273912CD4B81B00F81D44 /* PopularChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartViewController.swift; sourceTree = "<group>"; };
+		007273932CD4D17400F81D44 /* PopularChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartCell.swift; sourceTree = "<group>"; };
 		0073BF362CBFA208000E6314 /* ColorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsViewController.swift; sourceTree = "<group>"; };
 		007B75392CC87A0200155F27 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		007B753B2CC8853800155F27 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				00D366642CD379B200F40F42 /* RecommendCell.swift */,
 				0072737F2CD3FA4F00F81D44 /* EssentialAppCell.swift */,
 				0072738B2CD4AD2A00F81D44 /* RankAppCell.swift */,
+				007273932CD4D17400F81D44 /* PopularChartCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */,
 				007273862CD4957400F81D44 /* RankAppHeaderView.swift in Sources */,
 				0010384E2CD22EF2007C2085 /* PhotoCell.swift in Sources */,
+				007273942CD4D17400F81D44 /* PopularChartCell.swift in Sources */,
 				007EC29C2CB973DB005ACF95 /* ViewController.swift in Sources */,
 				0072738C2CD4AD2A00F81D44 /* RankAppCell.swift in Sources */,
 				0072738A2CD4A93200F81D44 /* PaidAppViewController.swift in Sources */,

@@ -7,18 +7,25 @@
 
 import UIKit
 
+protocol RankAppHeaderViewDelegate: AnyObject {
+    func didTapChartViewButton()
+}
+
 class RankAppHeaderView: UIView {
-        
+    
+    weak var delegate: RankAppHeaderViewDelegate?
+    
     private let titleLabel = UILabel().then {
         $0.text = "순위"
         $0.textColor = .black
         $0.font = .systemFont(ofSize: 24, weight: .bold)
     }
     
-    private let chartViewLabel = UILabel().then {
-        $0.text = "모두 보기"
-        $0.textColor = .systemBlue
-        $0.font = .systemFont(ofSize: 18, weight: .regular)
+    private let chartViewButton = UIButton().then {
+        $0.setTitle("모두 보기", for: .normal)
+        $0.setTitleColor(.systemBlue, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .regular)
+        $0.addTarget(self, action: #selector(chartViewButtonTapped), for: .touchUpInside)
     }
     
     override init(frame: CGRect) {
@@ -33,7 +40,7 @@ class RankAppHeaderView: UIView {
     }
     
     private func setUI() {
-        self.addSubviews(titleLabel, chartViewLabel)
+        self.addSubviews(titleLabel, chartViewButton)
     }
     
     private func setLayout() {
@@ -43,7 +50,7 @@ class RankAppHeaderView: UIView {
             $0.leading.equalToSuperview().offset(20)
         }
         
-        chartViewLabel.snp.makeConstraints {
+        chartViewButton.snp.makeConstraints {
             $0.centerY.equalTo(titleLabel.snp.centerY)
             $0.trailing.equalToSuperview().offset(-20)
         }
@@ -51,5 +58,9 @@ class RankAppHeaderView: UIView {
     
     func bind(title: String) {
         titleLabel.text = title
+    }
+    
+    @objc private func chartViewButtonTapped() {
+        delegate?.didTapChartViewButton()
     }
 }

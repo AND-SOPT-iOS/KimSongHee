@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FinAppViewController: UIViewController, FreeAppViewControllerDelegate {
+class FinAppViewController: UIViewController, FreeAppViewControllerDelegate, RankAppHeaderViewDelegate {
     
     private let scrollView = UIScrollView()
     private var contentView = UIView()
@@ -26,20 +26,20 @@ class FinAppViewController: UIViewController, FreeAppViewControllerDelegate {
         setLayout()
         
         freeAppViewController.delegate = self
-        
+        freeAppViewController.freeAppHeaderView.delegate = self
     }
     
     private func setStyle() {
         self.view.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
     }
-
+    
     private func setHierarchy() {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubviews(recommendViewController.view, essentialAppViewController.view, paidAppViewController.view, freeAppViewController.view)
     }
-
+    
     private func setLayout() {
         scrollView.snp.makeConstraints{
             $0.edges.equalToSuperview()
@@ -74,10 +74,10 @@ class FinAppViewController: UIViewController, FreeAppViewControllerDelegate {
             $0.height.equalTo(350)
             $0.bottom.equalToSuperview().offset(-20)
         }
-
-
+        
+        
     }
-
+    
     
     @objc func backButtonTapped() {
         // self.navigationController?.popViewController(animated: true)
@@ -87,7 +87,12 @@ class FinAppViewController: UIViewController, FreeAppViewControllerDelegate {
         let tossViewController = TossViewController()
         navigationController?.pushViewController(tossViewController, animated: true)
     }
-
+    
+    func didTapChartViewButton() {
+        let popularChartViewController = PopularChartViewController()
+        navigationController?.pushViewController(popularChartViewController, animated: true)
+    }
+    
 }
 
 extension FinAppViewController {

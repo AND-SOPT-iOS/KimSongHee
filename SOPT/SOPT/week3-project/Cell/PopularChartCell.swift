@@ -1,5 +1,5 @@
 //
-//  RankAppCell.swift
+//  PopularChartCell.swift
 //  SOPT
 //
 //  Created by 김송희 on 11/1/24.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RankAppCell: UICollectionViewCell {
+class PopularChartCell: UITableViewCell {
     
-    static let identifier = "RankAppCell"
+    static let identifier = "PopularChartCell"
     
     private let appIcon = UIImageView().then {
         $0.layer.borderWidth = 1
@@ -52,9 +52,9 @@ class RankAppCell: UICollectionViewCell {
         $0.backgroundColor = .systemGray6
         $0.layer.cornerRadius = 18
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUI()
         setLayout()
     }
@@ -70,18 +70,18 @@ class RankAppCell: UICollectionViewCell {
     
     private func setLayout() {
         appIcon.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.equalToSuperview()
             $0.size.equalTo(60)
         }
         
         ranking.snp.makeConstraints{
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.equalTo(appIcon.snp.trailing).offset(10)
         }
         
         verticalStackView.snp.makeConstraints{
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
             $0.leading.equalTo(ranking.snp.trailing).offset(10)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-8)
         }
@@ -94,21 +94,11 @@ class RankAppCell: UICollectionViewCell {
         }
     }
     
-    func paidAppBind(_ mockData: PaidApp) {
-        appIcon.image = mockData.icon
-        ranking.text = mockData.ranking
-        titleLabel.text = mockData.title
-        subtitleLabel.text = mockData.subtitle
-        downloadButton.setTitle(mockData.price, for: .normal)
-        downloadButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
-    }
-    
     func freeAppBind(_ mockData: FreeApp) {
         appIcon.image = mockData.icon
         ranking.text = mockData.ranking
         titleLabel.text = mockData.title
         subtitleLabel.text = mockData.subtitle
     }
-    
-}
 
+}

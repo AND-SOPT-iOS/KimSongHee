@@ -31,6 +31,7 @@ class TossViewController: UIViewController {
     
     private func setUI() {
         self.view.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
         
         firstSeparatorView.backgroundColor = .systemGray4
         secondSeparatorView.backgroundColor = .systemGray4
@@ -60,7 +61,7 @@ class TossViewController: UIViewController {
         }
         
         titleView.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(0)
+            $0.top.equalToSuperview().offset(20)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(150)
         }
@@ -171,14 +172,23 @@ class TossViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        // 뒤로가기(검색) 버튼 눌렀을 때 동작
-        // self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
 
 extension TossViewController {
     private func setNavigationBar() {
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        appearance.shadowColor = nil
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        
         // 화살표 아이콘과 검색 텍스트
         let backButton = UIButton(type: .system)
         backButton.setTitle(" 검색", for: .normal)

@@ -1,107 +1,75 @@
 //
-//  PreviewView.swift
+//  RecommendViewController.swift
 //  SOPT
 //
-//  Created by 김송희 on 10/23/24.
+//  Created by 김송희 on 10/31/24.
 //
 
 import UIKit
 
-class PreviewView: UIView {
-
-    private let previewTitleLabel = UILabel()
-    private let iPhoneLabel = UILabel()
+class RecommendViewController: UIViewController {
     
-    private var PreviewImageList = PreviewImage.mockData
+    final let cellHeight: CGFloat = 350
+    final let contentInterSpacing: CGFloat = 8 // 셀 사이의 간격
+    final let contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20) // 좌우 여백
+    
+    private var recommendList = Recommend.mockData
     
     private lazy var collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setStyle()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setUI()
-        setCollectionView()
         setLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setStyle() {
-        previewTitleLabel.text = "미리 보기"
-        previewTitleLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
-        
-        let iPhoneIcon = UIImage(systemName: "iphone")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        let iPhoneIconAttachment = NSTextAttachment()
-        iPhoneIconAttachment.image = iPhoneIcon
-        
-        let iPhoneIconText = NSMutableAttributedString(attachment: iPhoneIconAttachment)
-        let iPhoneText = NSAttributedString(string: " iPhone", attributes: [
-            .font: UIFont.systemFont(ofSize: 15, weight: .semibold),
-            .foregroundColor: UIColor.systemGray
-        ])
-        
-        iPhoneIconText.append(iPhoneText)
-        iPhoneLabel.attributedText = iPhoneIconText
+        setCollectionView()
     }
     
     private func setUI() {
-        addSubviews(previewTitleLabel, collectionView, iPhoneLabel)
+        self.view.addSubview(collectionView)
+    }
+    
+    private func setLayout() {
+        collectionView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(cellHeight)
+            $0.width.equalToSuperview()
+        }
     }
     
     private func setCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.sectionInset = .zero
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.itemSize = .init(width: 245, height: 520)
+        flowLayout.minimumInteritemSpacing = contentInterSpacing
+        
+        let cellWidth = UIScreen.main.bounds.width - 40
+        flowLayout.itemSize = .init(width: cellWidth, height: cellHeight)
         
         collectionView.do {
             $0.setCollectionViewLayout(flowLayout, animated: false)
             $0.register(
-                PreviewImageCell.self,
-                forCellWithReuseIdentifier: PreviewImageCell.identifier
+                RecommendCell.self,
+                forCellWithReuseIdentifier: RecommendCell.identifier
             )
             $0.delegate = self
             $0.dataSource = self
-                        
+            
             $0.showsHorizontalScrollIndicator = false
             $0.decelerationRate = UIScrollView.DecelerationRate.fast
         }
     }
     
-    private func setLayout() {
-        
-        previewTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalToSuperview()
-        }
-        
-        collectionView.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(previewTitleLabel.snp.bottom).offset(10)
-            $0.height.equalTo(520)
-            $0.width.equalToSuperview()
-        }
-        
-        iPhoneLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.equalTo(collectionView.snp.bottom).offset(10)
-            $0.bottom.equalToSuperview()
-        }
-    }
 }
 
-extension PreviewView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return PreviewImageList.count
+        return recommendList.count
     }
     
     func collectionView(
@@ -109,24 +77,24 @@ extension PreviewView: UICollectionViewDelegate, UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PreviewImageCell.identifier,
+            withReuseIdentifier: RecommendCell.identifier,
             for: indexPath
-        ) as? PreviewImageCell else {
+        ) as? RecommendCell else {
             return UICollectionViewCell()
         }
         
-        cell.bind(PreviewImageList[indexPath.row])
+        cell.bind(recommendList[indexPath.row])
         return cell
     }
 }
 
-extension PreviewView: UICollectionViewDelegateFlowLayout {
+extension RecommendViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: 245, height: 520)
+        return CGSize(width: UIScreen.main.bounds.width - 40, height: cellHeight)
     }
     
     func collectionView(
@@ -134,7 +102,7 @@ extension PreviewView: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int
     ) -> CGFloat {
-        return 20
+        return contentInterSpacing
     }
     
     func collectionView(
@@ -142,12 +110,12 @@ extension PreviewView: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAt section: Int
     ) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return contentInset
     }
 }
 
 // 자연스러운 paging을 위하여
-extension PreviewView: UIScrollViewDelegate {
+extension RecommendViewController: UIScrollViewDelegate {
     func scrollViewWillEndDragging(
         _ scrollView: UIScrollView,
         withVelocity velocity: CGPoint,
@@ -166,4 +134,3 @@ extension PreviewView: UIScrollViewDelegate {
         targetContentOffset.pointee = CGPoint(x: xOffset, y: targetContentOffset.pointee.y)
     }
 }
-

@@ -1,5 +1,5 @@
 //
-//  UserService.swift
+//  SignUpService.swift
 //  SOPT
 //
 //  Created by 김송희 on 11/6/24.
@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 /// 클래스는 라우터 별로 나눠줄 수 있으며, 이 클래스의 라우터는 /user
-class UserService {
+class SignUpService {
     
     /// 등록 메소드로, Request Body에 필요한 것들을 파라미터로 받음
     func register(
@@ -22,7 +22,7 @@ class UserService {
         let url = Environment.baseURL + "/user"
         
         /// HTTP 요청에서 전송되는 데이터를 "parameters" 또는 "params"라고 부름
-        let parameters = RegisterRequest(
+        let parameters = SignUpRequest(
             username: username,
             password: password,
             hobby: hobby

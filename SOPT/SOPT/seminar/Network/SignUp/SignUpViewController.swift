@@ -18,6 +18,18 @@ class SignUpViewController: UIViewController {
         return textField
     }()
     
+    private let passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Password"
+        return textField
+    }()
+    
+    private let hobbyTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Hobby"
+        return textField
+    }()
+    
     private let signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
@@ -33,7 +45,7 @@ class SignUpViewController: UIViewController {
         return label
     }()
     
-    let userService = UserService()
+    let userService = SignUpService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +56,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setTargets() {
-        signUpButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
     
     private func setStyle() {
@@ -52,9 +64,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func setUI() {
-        view.addSubview(userNameTextField)
-        view.addSubview(signUpButton)
-        view.addSubview(resultLabel)
+        view.addSubviews(userNameTextField, passwordTextField, hobbyTextField, signUpButton, resultLabel)
     }
     
     private func setLayout() {
@@ -63,8 +73,20 @@ class SignUpViewController: UIViewController {
             $0.horizontalEdges.equalToSuperview().inset(20)
         }
         
-        signUpButton.snp.makeConstraints {
+        passwordTextField.snp.makeConstraints {
             $0.top.equalTo(userNameTextField.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(20)
+        }
+        
+        hobbyTextField.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(20)
+        }
+        
+        signUpButton.snp.makeConstraints {
+            $0.top.equalTo(hobbyTextField.snp.bottom).offset(20)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
@@ -75,13 +97,13 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    // login 버튼이 눌리면 userService의 register 메서드 호출
-    @objc func loginButtonTapped() {
+    // signUp 버튼이 눌리면 userService의 register 메서드 호출
+    @objc func signUpButtonTapped() {
         userService.register(
             // 입력받은 값을 파라미터로 전달
             username: userNameTextField.text!,
-            password: "123",
-            hobby: "123"
+            password: passwordTextField.text!,
+            hobby: hobbyTextField.text!
         ) { [weak self] result in
             // 네트워크 요청은 백그라운드 스레드, UI 업데이트는 메인 스레드에서 처리
             DispatchQueue.main.async {

@@ -48,6 +48,14 @@ class UserViewController: UIViewController {
         button.backgroundColor = .systemBlue
         return button
     }()
+    
+    private let logoutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("로그아웃하기", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +72,7 @@ class UserViewController: UIViewController {
         myHobbyEnterButton.addTarget(self, action: #selector(myHobbyEnterButtonTapped), for: .touchUpInside)
         hisHobbyEnterButton.addTarget(self, action: #selector(hisHobbyEnterButtonTapped), for: .touchUpInside)
         editInfoEnterButton.addTarget(self, action: #selector(editInfoEnterButtonTapped), for: .touchUpInside)
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
         
     }
     
@@ -72,7 +81,7 @@ class UserViewController: UIViewController {
     }
     
     private func setUI() {
-        view.addSubviews(signUpEnterButton, loginEnterButton, myHobbyEnterButton, hisHobbyEnterButton, editInfoEnterButton)
+        view.addSubviews(signUpEnterButton, loginEnterButton, myHobbyEnterButton, hisHobbyEnterButton, editInfoEnterButton, logoutButton)
     }
     
     private func setLayout() {
@@ -105,6 +114,20 @@ class UserViewController: UIViewController {
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
+        
+        logoutButton.snp.makeConstraints {
+            $0.top.equalTo(editInfoEnterButton.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
+        }
+    }
+    
+    private func transitionToNextViewController(
+    nextViewController: UIViewController) {
+        self.navigationController?.pushViewController(
+            nextViewController,
+            animated: true
+        )
     }
     
     @objc func signUpEnterButtonTapped() {
@@ -137,12 +160,9 @@ class UserViewController: UIViewController {
         )
     }
     
-    private func transitionToNextViewController(
-    nextViewController: UIViewController) {
-        self.navigationController?.pushViewController(
-            nextViewController,
-            animated: true
-        )
+    @objc func logoutButtonTapped() {
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
     }
 
 }

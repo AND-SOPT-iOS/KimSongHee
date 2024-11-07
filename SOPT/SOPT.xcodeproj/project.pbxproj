@@ -204,21 +204,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		0057ACE22CDB08040020BDB0 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				00B56FEB2CDD28D000EF709A /* EditInfo */,
-				00B56FE62CDD266700EF709A /* HisHobby */,
-				00B56FDF2CDD1E1700EF709A /* MyHobby */,
-				00B56FD62CDD1A2A00EF709A /* Login */,
-				0057ACE32CDB081A0020BDB0 /* SignUp */,
-				0057ACEB2CDB09C00020BDB0 /* NetworkError.swift */,
-				0057ACE82CDB09600020BDB0 /* Environment.swift */,
-				00B56FF22CDD32C100EF709A /* UserViewController.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		0057ACE32CDB081A0020BDB0 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +289,7 @@
 				00FF733A2CC1E110001218BD /* seminar */,
 				00FF73392CC1E087001218BD /* week2-project */,
 				00D3665B2CD35C5700F40F42 /* week3-project */,
+				00B56FF42CDD36A400EF709A /* week4-project */,
 				007EC29D2CB973DB005ACF95 /* Main.storyboard */,
 				007EC2A02CB973DC005ACF95 /* Assets.xcassets */,
 				007EC2A22CB973DC005ACF95 /* LaunchScreen.storyboard */,
@@ -351,6 +337,21 @@
 				00B56FF02CDD2F4900EF709A /* EditRequest.swift */,
 			);
 			path = EditInfo;
+			sourceTree = "<group>";
+		};
+		00B56FF42CDD36A400EF709A /* week4-project */ = {
+			isa = PBXGroup;
+			children = (
+				00B56FF22CDD32C100EF709A /* UserViewController.swift */,
+				00B56FEB2CDD28D000EF709A /* EditInfo */,
+				00B56FE62CDD266700EF709A /* HisHobby */,
+				00B56FDF2CDD1E1700EF709A /* MyHobby */,
+				00B56FD62CDD1A2A00EF709A /* Login */,
+				0057ACE32CDB081A0020BDB0 /* SignUp */,
+				0057ACEB2CDB09C00020BDB0 /* NetworkError.swift */,
+				0057ACE82CDB09600020BDB0 /* Environment.swift */,
+			);
+			path = "week4-project";
 			sourceTree = "<group>";
 		};
 		00D3665B2CD35C5700F40F42 /* week3-project */ = {
@@ -413,7 +414,6 @@
 				0057ACEA2CDB09790020BDB0 /* Basic */,
 				0010383C2CD2257D007C2085 /* TableView */,
 				001038482CD22C8E007C2085 /* CollectionView */,
-				0057ACE22CDB08040020BDB0 /* Network */,
 			);
 			path = seminar;
 			sourceTree = "<group>";

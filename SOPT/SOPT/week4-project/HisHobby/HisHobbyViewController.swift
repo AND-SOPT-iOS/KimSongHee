@@ -77,6 +77,7 @@ class HisHobbyViewController: UIViewController {
     
     @objc func hobbyButtonTapped() {
         hisHobbyService.hisHobby(
+            token: UserDefaults.standard.string(forKey: "authToken") ?? "",
             no: userNameTextField.text!
         ) { [weak self] result in
             DispatchQueue.main.async {

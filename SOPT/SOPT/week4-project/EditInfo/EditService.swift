@@ -1,5 +1,5 @@
 //
-//  MyHobbyService.swift
+//  EditService.swift
 //  SOPT
 //
 //  Created by 김송희 on 11/8/24.
@@ -8,45 +8,46 @@
 import Foundation
 import Alamofire
 
-class MyHobbyService {
+class EditService {
     
-    func myHobby(
-    token: String,
-    completion: @escaping (Result<String, NetworkError>) -> Void
+    func edit(
+        token: String,
+        hobby: String,
+        password: String,
+        completion: @escaping (Result<Bool, NetworkError>) -> Void
     ) {
-        // 토큰 꺼내오기
-        guard let token = UserDefaults.standard.string(forKey: "authToken")
-        else {return}
         
-        let url = Environment.baseURL + "/user/my-hobby"
+        let url = Environment.baseURL + "/user"
         let headers: HTTPHeaders = ["token": token]
+        
+        let parameters = EditRequest(
+            hobby: hobby,
+            password: password
+        )
         
         AF.request(
             url,
-            method: .get,
+            method: .put,
+            parameters: parameters,
+            encoder: JSONParameterEncoder.default,
             headers: headers
         )
         .validate()
-        .responseData { [weak self] response in
+        .response { [weak self] response in
             
             guard let statusCode = response.response?.statusCode,
                   let data = response.data,
                   let self
             else {
-                completion(.failure(.unknownError))
+                completion(.failure(.strange))
+                // 왜 입력받은 취미가 서버에서는 제대로 바뀌는데 이 else 문에 걸릴까?
+                // 서버에서 빈 response를 반환하고 있어서 data가 nil이 됨
                 return
             }
             
             switch response.result {
             case .success:
-                do {
-                    let hobbyResponse = try JSONDecoder().decode(HobbyResponse.self, from: data)
-                    let hobby = hobbyResponse.result.hobby
-                    completion(.success(hobby))
-                } catch {
-                    let error = self.handleStatusCode(statusCode, data: data)
-                    completion(.failure(error))
-                }
+                completion(.success(true))
                 
             case .failure:
                 let error = self.handleStatusCode(statusCode, data: data)
@@ -61,6 +62,8 @@ class MyHobbyService {
     ) -> NetworkError {
         let errorCode = decodeError(data: data)
         switch (statusCode, errorCode) {
+        case (400, "00"):
+            return .expressionError
         case (401, "00"):
             return .noToken
         case (403, "00"):
@@ -79,6 +82,6 @@ class MyHobbyService {
             ErrorResponse.self,
             from: data
         ) else { return "" }
-        return errorResponse.code //00 혹은 01
+        return errorResponse.code
     }
 }

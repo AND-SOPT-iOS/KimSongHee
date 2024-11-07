@@ -11,11 +11,10 @@ import Alamofire
 class HisHobbyService {
     
     func hisHobby(
+        token: String,
         no: String,
         completion: @escaping (Result<String, NetworkError>) -> Void
     ) {
-        guard let token = UserDefaults.standard.string(forKey: "authToken")
-        else {return}
         
         let url = Environment.baseURL + "/user/" + no + "/hobby"
         let headers: HTTPHeaders = ["token": token]

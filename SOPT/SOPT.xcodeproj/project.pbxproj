@@ -65,6 +65,12 @@
 		00B56FE12CDD1E2500EF709A /* MyHobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FE02CDD1E2500EF709A /* MyHobbyViewController.swift */; };
 		00B56FE32CDD1E5700EF709A /* MyHobbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FE22CDD1E5700EF709A /* MyHobbyService.swift */; };
 		00B56FE52CDD1FF800EF709A /* HobbyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FE42CDD1FF800EF709A /* HobbyResult.swift */; };
+		00B56FE82CDD268600EF709A /* HisHobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FE72CDD268600EF709A /* HisHobbyViewController.swift */; };
+		00B56FEA2CDD26F900EF709A /* HisHobbyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FE92CDD26F900EF709A /* HisHobbyService.swift */; };
+		00B56FED2CDD28F000EF709A /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FEC2CDD28F000EF709A /* EditInfoViewController.swift */; };
+		00B56FEF2CDD29AF00EF709A /* EditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FEE2CDD29AF00EF709A /* EditService.swift */; };
+		00B56FF12CDD2F4900EF709A /* EditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FF02CDD2F4900EF709A /* EditRequest.swift */; };
+		00B56FF32CDD32C100EF709A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FF22CDD32C100EF709A /* UserViewController.swift */; };
 		00D3665D2CD35D4400F40F42 /* FinAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3665C2CD35D4400F40F42 /* FinAppViewController.swift */; };
 		00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3665E2CD3720900F40F42 /* RecommendViewController.swift */; };
 		00D366612CD3777C00F40F42 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D366602CD3777C00F40F42 /* RecommendModel.swift */; };
@@ -132,6 +138,12 @@
 		00B56FE02CDD1E2500EF709A /* MyHobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyViewController.swift; sourceTree = "<group>"; };
 		00B56FE22CDD1E5700EF709A /* MyHobbyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyService.swift; sourceTree = "<group>"; };
 		00B56FE42CDD1FF800EF709A /* HobbyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HobbyResult.swift; sourceTree = "<group>"; };
+		00B56FE72CDD268600EF709A /* HisHobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HisHobbyViewController.swift; sourceTree = "<group>"; };
+		00B56FE92CDD26F900EF709A /* HisHobbyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HisHobbyService.swift; sourceTree = "<group>"; };
+		00B56FEC2CDD28F000EF709A /* EditInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
+		00B56FEE2CDD29AF00EF709A /* EditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditService.swift; sourceTree = "<group>"; };
+		00B56FF02CDD2F4900EF709A /* EditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRequest.swift; sourceTree = "<group>"; };
+		00B56FF22CDD32C100EF709A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		00D3665C2CD35D4400F40F42 /* FinAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinAppViewController.swift; sourceTree = "<group>"; };
 		00D3665E2CD3720900F40F42 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		00D366602CD3777C00F40F42 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
@@ -195,11 +207,14 @@
 		0057ACE22CDB08040020BDB0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				00B56FEB2CDD28D000EF709A /* EditInfo */,
+				00B56FE62CDD266700EF709A /* HisHobby */,
 				00B56FDF2CDD1E1700EF709A /* MyHobby */,
 				00B56FD62CDD1A2A00EF709A /* Login */,
 				0057ACE32CDB081A0020BDB0 /* SignUp */,
 				0057ACEB2CDB09C00020BDB0 /* NetworkError.swift */,
 				0057ACE82CDB09600020BDB0 /* Environment.swift */,
+				00B56FF22CDD32C100EF709A /* UserViewController.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -317,6 +332,25 @@
 				00B56FE42CDD1FF800EF709A /* HobbyResult.swift */,
 			);
 			path = MyHobby;
+			sourceTree = "<group>";
+		};
+		00B56FE62CDD266700EF709A /* HisHobby */ = {
+			isa = PBXGroup;
+			children = (
+				00B56FE72CDD268600EF709A /* HisHobbyViewController.swift */,
+				00B56FE92CDD26F900EF709A /* HisHobbyService.swift */,
+			);
+			path = HisHobby;
+			sourceTree = "<group>";
+		};
+		00B56FEB2CDD28D000EF709A /* EditInfo */ = {
+			isa = PBXGroup;
+			children = (
+				00B56FEC2CDD28F000EF709A /* EditInfoViewController.swift */,
+				00B56FEE2CDD29AF00EF709A /* EditService.swift */,
+				00B56FF02CDD2F4900EF709A /* EditRequest.swift */,
+			);
+			path = EditInfo;
 			sourceTree = "<group>";
 		};
 		00D3665B2CD35C5700F40F42 /* week3-project */ = {
@@ -467,7 +501,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */,
+				00B56FEA2CDD26F900EF709A /* HisHobbyService.swift in Sources */,
 				007273862CD4957400F81D44 /* RankAppHeaderView.swift in Sources */,
+				00B56FE82CDD268600EF709A /* HisHobbyViewController.swift in Sources */,
 				0010384E2CD22EF2007C2085 /* PhotoCell.swift in Sources */,
 				007273942CD4D17400F81D44 /* PopularChartCell.swift in Sources */,
 				0057ACEE2CDB0B740020BDB0 /* SignUpViewController.swift in Sources */,
@@ -476,6 +512,8 @@
 				0072738A2CD4A93200F81D44 /* PaidAppViewController.swift in Sources */,
 				004986432CC813D6006CD84C /* DescriptionView.swift in Sources */,
 				00401EE62CC0DB9D0078F3FF /* UIView+.swift in Sources */,
+				00B56FEF2CDD29AF00EF709A /* EditService.swift in Sources */,
+				00B56FF12CDD2F4900EF709A /* EditRequest.swift in Sources */,
 				0072738E2CD4B10500F81D44 /* FreeAppViewController.swift in Sources */,
 				007EC2982CB973DB005ACF95 /* AppDelegate.swift in Sources */,
 				0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */,
@@ -490,8 +528,10 @@
 				0072739C2CD4E7DF00F81D44 /* ReviewModel.swift in Sources */,
 				00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */,
 				001038442CD225CA007C2085 /* DownloadState.swift in Sources */,
+				00B56FF32CDD32C100EF709A /* UserViewController.swift in Sources */,
 				0057ACEC2CDB09C00020BDB0 /* NetworkError.swift in Sources */,
 				001038402CD225A4007C2085 /* ChartViewController.swift in Sources */,
+				00B56FED2CDD28F000EF709A /* EditInfoViewController.swift in Sources */,
 				0057ACE72CDB08DE0020BDB0 /* SignUpService.swift in Sources */,
 				00D366612CD3777C00F40F42 /* RecommendModel.swift in Sources */,
 				00B56FDA2CDD1C9500EF709A /* LoginService.swift in Sources */,

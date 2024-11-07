@@ -1,5 +1,5 @@
 //
-//  MyHobbyService.swift
+//  HisHobbyService.swift
 //  SOPT
 //
 //  Created by 김송희 on 11/8/24.
@@ -8,17 +8,16 @@
 import Foundation
 import Alamofire
 
-class MyHobbyService {
+class HisHobbyService {
     
-    func myHobby(
-    token: String,
-    completion: @escaping (Result<String, NetworkError>) -> Void
+    func hisHobby(
+        no: String,
+        completion: @escaping (Result<String, NetworkError>) -> Void
     ) {
-        // 토큰 꺼내오기
         guard let token = UserDefaults.standard.string(forKey: "authToken")
         else {return}
         
-        let url = Environment.baseURL + "/user/my-hobby"
+        let url = Environment.baseURL + "/user/" + no + "/hobby"
         let headers: HTTPHeaders = ["token": token]
         
         AF.request(
@@ -61,12 +60,10 @@ class MyHobbyService {
     ) -> NetworkError {
         let errorCode = decodeError(data: data)
         switch (statusCode, errorCode) {
-        case (401, "00"):
-            return .noToken
-        case (403, "00"):
-            return .invalidToken
         case (404, "00"):
             return .invalidURL
+        case (404, "01"):
+            return .noNo
         case (500, ""):
             return .serverError
         default:

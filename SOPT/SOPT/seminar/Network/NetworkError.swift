@@ -21,6 +21,8 @@ enum NetworkError: Error {
     case failureToken
     case noToken
     case invalidToken
+    case noNo
+    case strange
     
     var errorMessage: String {
         switch self {
@@ -50,6 +52,10 @@ enum NetworkError: Error {
             return "header에 토큰이 없습니다"
         case .invalidToken:
             return "유효하지 않은 토큰입니다"
+        case .noNo:
+            return "해당되는 번호가 없습니다"
+        case .strange:
+            return "이상한 에러가 발생했어요"
         }
     }
 }

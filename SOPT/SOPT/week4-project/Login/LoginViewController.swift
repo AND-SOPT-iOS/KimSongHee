@@ -40,15 +40,6 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    /*private let hobbyButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("취미 조회", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.isHidden = true
-        return button
-    }()*/
-    
     let loginService = LoginService()
     
     override func viewDidLoad() {
@@ -61,8 +52,6 @@ class LoginViewController: UIViewController {
     
     private func setTargets() {
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        
-        /*hobbyButton.addTarget(self, action: #selector(hobbyButtonTapped), for: .touchUpInside)*/
     }
     
     private func setStyle() {
@@ -97,11 +86,6 @@ class LoginViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         
-        /*hobbyButton.snp.makeConstraints{
-            $0.top.equalTo(resultLabel.snp.bottom).offset(40)
-            $0.horizontalEdges.equalToSuperview().inset(20)
-            $0.height.equalTo(60)
-        }*/
     }
     
     @objc func loginButtonTapped() {
@@ -127,45 +111,4 @@ class LoginViewController: UIViewController {
         }
     }
     
-    /*@objc func hobbyButtonTapped() {
-        
-        // 토큰 꺼내오기
-        guard let token = UserDefaults.standard.string(forKey: "authToken")
-        else {return}
-        
-        let url = Environment.baseURL + "/user/my-hobby"
-        let headers: HTTPHeaders = ["token": token]
-        
-        AF.request(
-            url,
-            method: .get,
-            headers: headers
-        )
-        .validate()
-        .responseData { [weak self] response in
-           // Type of expression is ambiguous without a type annotation 에러 발생
-            
-            guard let statusCode = response.response?.statusCode,
-                  let data = response.data,
-                  let self
-            else {
-                self?.resultLabel.text = "취미 조회 실패"
-                return
-            }
-            
-            switch response.result {
-            case .success:
-                do {
-                    let hobbyResponse = try JSONDecoder().decode(HobbyResponse.self, from: data)
-                    let hobby = hobbyResponse.result.hobby
-                    self.resultLabel.text = "취미는 \(hobby)"
-                } catch {
-                    self.resultLabel.text = "데이터 처리 오류"
-                }
-                
-            case .failure:
-                self.resultLabel.text = "통신 실패"
-            }
-        }
-    }*/
 }

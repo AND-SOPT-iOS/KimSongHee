@@ -75,6 +75,7 @@
 		00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3665E2CD3720900F40F42 /* RecommendViewController.swift */; };
 		00D366612CD3777C00F40F42 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D366602CD3777C00F40F42 /* RecommendModel.swift */; };
 		00D366652CD379B200F40F42 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D366642CD379B200F40F42 /* RecommendCell.swift */; };
+		00D943AE2CDDCC1E00A34720 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */; };
 		00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */; };
 		00FF73382CC1E076001218BD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF73372CC1E076001218BD /* TitleView.swift */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,7 @@
 		00D3665E2CD3720900F40F42 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		00D366602CD3777C00F40F42 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		00D366642CD379B200F40F42 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		00FF73372CC1E076001218BD /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,6 +359,7 @@
 		00D3665B2CD35C5700F40F42 /* week3-project */ = {
 			isa = PBXGroup;
 			children = (
+				00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */,
 				00D3665C2CD35D4400F40F42 /* FinAppViewController.swift */,
 				0072737C2CD3F81400F81D44 /* Header */,
 				00D366622CD378E000F40F42 /* Model */,
@@ -510,6 +513,7 @@
 				007EC29C2CB973DB005ACF95 /* ViewController.swift in Sources */,
 				0072738C2CD4AD2A00F81D44 /* RankAppCell.swift in Sources */,
 				0072738A2CD4A93200F81D44 /* PaidAppViewController.swift in Sources */,
+				00D943AE2CDDCC1E00A34720 /* MainTabBarController.swift in Sources */,
 				004986432CC813D6006CD84C /* DescriptionView.swift in Sources */,
 				00401EE62CC0DB9D0078F3FF /* UIView+.swift in Sources */,
 				00B56FEF2CDD29AF00EF709A /* EditService.swift in Sources */,

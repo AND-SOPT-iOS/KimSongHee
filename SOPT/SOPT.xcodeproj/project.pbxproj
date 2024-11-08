@@ -70,7 +70,7 @@
 		00B56FED2CDD28F000EF709A /* EditInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FEC2CDD28F000EF709A /* EditInfoViewController.swift */; };
 		00B56FEF2CDD29AF00EF709A /* EditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FEE2CDD29AF00EF709A /* EditService.swift */; };
 		00B56FF12CDD2F4900EF709A /* EditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FF02CDD2F4900EF709A /* EditRequest.swift */; };
-		00B56FF32CDD32C100EF709A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FF22CDD32C100EF709A /* UserViewController.swift */; };
+		00B56FF32CDD32C100EF709A /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FF22CDD32C100EF709A /* ServerViewController.swift */; };
 		00D3665D2CD35D4400F40F42 /* FinAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3665C2CD35D4400F40F42 /* FinAppViewController.swift */; };
 		00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3665E2CD3720900F40F42 /* RecommendViewController.swift */; };
 		00D366612CD3777C00F40F42 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D366602CD3777C00F40F42 /* RecommendModel.swift */; };
@@ -144,7 +144,7 @@
 		00B56FEC2CDD28F000EF709A /* EditInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoViewController.swift; sourceTree = "<group>"; };
 		00B56FEE2CDD29AF00EF709A /* EditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditService.swift; sourceTree = "<group>"; };
 		00B56FF02CDD2F4900EF709A /* EditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRequest.swift; sourceTree = "<group>"; };
-		00B56FF22CDD32C100EF709A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		00B56FF22CDD32C100EF709A /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		00D3665C2CD35D4400F40F42 /* FinAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinAppViewController.swift; sourceTree = "<group>"; };
 		00D3665E2CD3720900F40F42 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		00D366602CD3777C00F40F42 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 		00B56FF42CDD36A400EF709A /* week4-project */ = {
 			isa = PBXGroup;
 			children = (
-				00B56FF22CDD32C100EF709A /* UserViewController.swift */,
+				00B56FF22CDD32C100EF709A /* ServerViewController.swift */,
 				00B56FEB2CDD28D000EF709A /* EditInfo */,
 				00B56FE62CDD266700EF709A /* HisHobby */,
 				00B56FDF2CDD1E1700EF709A /* MyHobby */,
@@ -532,7 +532,7 @@
 				0072739C2CD4E7DF00F81D44 /* ReviewModel.swift in Sources */,
 				00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */,
 				001038442CD225CA007C2085 /* DownloadState.swift in Sources */,
-				00B56FF32CDD32C100EF709A /* UserViewController.swift in Sources */,
+				00B56FF32CDD32C100EF709A /* ServerViewController.swift in Sources */,
 				0057ACEC2CDB09C00020BDB0 /* NetworkError.swift in Sources */,
 				001038402CD225A4007C2085 /* ChartViewController.swift in Sources */,
 				00B56FED2CDD28F000EF709A /* EditInfoViewController.swift in Sources */,

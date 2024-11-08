@@ -23,6 +23,7 @@ class HisHobbyViewController: UIViewController {
         button.setTitle("다른 사람 취미 조회하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     

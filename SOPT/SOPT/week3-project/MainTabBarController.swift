@@ -21,22 +21,22 @@ class MainTabBarController: UITabBarController {
         let todayViewController = TodayViewController()
         let gamesViewController = GamesViewController()
         let appsViewController = FinAppViewController()
-        let arcadeViewController = ArcadeViewController()
+        let serverViewController = ServerViewController()
         let searchViewController = SearchViewController()
         
         let todayNavController = UINavigationController(rootViewController: todayViewController)
         let gamesNavController = UINavigationController(rootViewController: gamesViewController)
         let appsNavController = UINavigationController(rootViewController: appsViewController)
-        let arcadeNavController = UINavigationController(rootViewController: arcadeViewController)
+        let serverNavController = UINavigationController(rootViewController: serverViewController)
         let searchNavController = UINavigationController(rootViewController: searchViewController)
         
-        todayNavController.tabBarItem = UITabBarItem(title: "투데이", image: UIImage(systemName: "doc.text"), tag: 0)
-        gamesNavController.tabBarItem = UITabBarItem(title: "게임", image: UIImage(systemName: "gamecontroller"), tag: 1)
-        appsNavController.tabBarItem = UITabBarItem(title: "앱", image: UIImage(systemName: "square.stack.3d.down.right.fill"), tag: 2)
-        arcadeNavController.tabBarItem = UITabBarItem(title: "Arcade", image: UIImage(systemName: "gamecontroller.fill"), tag: 3)
+        todayNavController.tabBarItem = UITabBarItem(title: "투데이", image: UIImage(systemName: "doc.text.image"), tag: 0)
+        gamesNavController.tabBarItem = UITabBarItem(title: "게임", image: UIImage(systemName: "gamecontroller.fill"), tag: 1)
+        appsNavController.tabBarItem = UITabBarItem(title: "앱", image: UIImage(systemName: "square.stack.3d.up.fill"), tag: 2)
+        serverNavController.tabBarItem = UITabBarItem(title: "서버", image: UIImage(systemName: "person.fill"), tag: 3)
         searchNavController.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), tag: 4)
         
-        self.viewControllers = [todayNavController, gamesNavController, appsNavController, arcadeNavController, searchNavController]
+        self.viewControllers = [todayNavController, gamesNavController, appsNavController, serverNavController, searchNavController]
     }
     
     private func setStyle() {
@@ -61,14 +61,6 @@ class GamesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.title = "게임"
-    }
-}
-
-class ArcadeViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        self.title = "Arcade"
     }
 }
 

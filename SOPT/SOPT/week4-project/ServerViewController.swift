@@ -1,5 +1,5 @@
 //
-//  UserViewController.swift
+//  ServerViewController.swift
 //  SOPT
 //
 //  Created by 김송희 on 11/8/24.
@@ -7,13 +7,14 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class ServerViewController: UIViewController {
     
     private let signUpEnterButton: UIButton = {
         let button = UIButton()
         button.setTitle("회원가입 하러가기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -22,6 +23,7 @@ class UserViewController: UIViewController {
         button.setTitle("로그인 하러가기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -30,6 +32,7 @@ class UserViewController: UIViewController {
         button.setTitle("내 취미 찾으러 가기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -38,6 +41,7 @@ class UserViewController: UIViewController {
         button.setTitle("남의 취미 찾으러 가기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -46,6 +50,7 @@ class UserViewController: UIViewController {
         button.setTitle("내 정보 변경하러 가기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -54,6 +59,7 @@ class UserViewController: UIViewController {
         button.setTitle("로그아웃하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 15
         return button
     }()
     

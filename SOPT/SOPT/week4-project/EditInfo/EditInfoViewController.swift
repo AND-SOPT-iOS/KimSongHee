@@ -32,7 +32,7 @@ class EditInfoViewController: UIViewController {
     private let resultLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "8자 이하의 text를 입력해주세요."
+        label.text = "새로운 정보를 8자 이하로 입력해주세요."
         return label
     }()
     

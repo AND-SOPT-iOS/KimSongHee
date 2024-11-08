@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     private let resultLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "user name를 입력해주세요."
+        label.text = "이름과 비밀번호를 입력해주세요."
         return label
     }()
     

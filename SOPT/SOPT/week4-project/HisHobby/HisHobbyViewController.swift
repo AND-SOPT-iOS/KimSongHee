@@ -29,7 +29,7 @@ class HisHobbyViewController: UIViewController {
     private let resultLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.text = "그의 취미는..."
+        label.text = "검색하고 싶은 번호를 입력하세요"
         return label
     }()
     

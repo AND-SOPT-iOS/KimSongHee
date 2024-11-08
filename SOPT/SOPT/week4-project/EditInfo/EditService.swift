@@ -36,22 +36,21 @@ class EditService {
         .response { [weak self] response in
             
             guard let statusCode = response.response?.statusCode,
-                  let data = response.data,
                   let self
             else {
-                completion(.failure(.strange))
-                // 왜 입력받은 취미가 서버에서는 제대로 바뀌는데 이 else 문에 걸릴까?
-                // 서버에서 빈 response를 반환하고 있어서 data가 nil이 됨
+                completion(.failure(.unknownError))
                 return
             }
             
-            switch response.result {
-            case .success:
+            if 200...299 ~= statusCode {
                 completion(.success(true))
-                
-            case .failure:
-                let error = self.handleStatusCode(statusCode, data: data)
-                completion(.failure(error))
+            } else {
+                if let data = response.data {
+                    let error = self.handleStatusCode(statusCode, data: data)
+                    completion(.failure(error))
+                } else {
+                    completion(.failure(.unknownError))
+                }
             }
         }
     }

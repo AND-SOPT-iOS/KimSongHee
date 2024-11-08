@@ -56,13 +56,30 @@ class UserViewController: UIViewController {
         button.backgroundColor = .systemBlue
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setStyle()
         setUI()
         setLayout()
         setTargets()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateButtonVisibility()
+    }
+    
+    private func updateButtonVisibility() {
+        let isLoggedIn = UserDefaults.standard.string(forKey: "authToken") != nil
+        
+        myHobbyEnterButton.isHidden = !isLoggedIn
+        hisHobbyEnterButton.isHidden = !isLoggedIn
+        editInfoEnterButton.isHidden = !isLoggedIn
+        logoutButton.isHidden = !isLoggedIn
+        
+        signUpEnterButton.isHidden = isLoggedIn
+        loginEnterButton.isHidden = isLoggedIn
     }
     
     private func setTargets() {
@@ -123,12 +140,12 @@ class UserViewController: UIViewController {
     }
     
     private func transitionToNextViewController(
-    nextViewController: UIViewController) {
-        self.navigationController?.pushViewController(
-            nextViewController,
-            animated: true
-        )
-    }
+        nextViewController: UIViewController) {
+            self.navigationController?.pushViewController(
+                nextViewController,
+                animated: true
+            )
+        }
     
     @objc func signUpEnterButtonTapped() {
         transitionToNextViewController(
@@ -161,8 +178,10 @@ class UserViewController: UIViewController {
     }
     
     @objc func logoutButtonTapped() {
-        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        UserDefaults.standard.synchronize()
+        UserDefaults.standard.removeObject(forKey: "authToken")
+        
+        updateButtonVisibility()
+        view.layoutIfNeeded()
     }
-
+    
 }

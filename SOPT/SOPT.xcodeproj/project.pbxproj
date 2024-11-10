@@ -75,6 +75,7 @@
 		00D3665F2CD3720900F40F42 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D3665E2CD3720900F40F42 /* RecommendViewController.swift */; };
 		00D366612CD3777C00F40F42 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D366602CD3777C00F40F42 /* RecommendModel.swift */; };
 		00D366652CD379B200F40F42 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D366642CD379B200F40F42 /* RecommendCell.swift */; };
+		00D7EF602CE1173600D23126 /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EF5F2CE1173600D23126 /* NetworkErrorHandler.swift */; };
 		00D943AE2CDDCC1E00A34720 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */; };
 		00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */; };
 		00FF73382CC1E076001218BD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF73372CC1E076001218BD /* TitleView.swift */; };
@@ -149,6 +150,7 @@
 		00D3665E2CD3720900F40F42 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		00D366602CD3777C00F40F42 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
 		00D366642CD379B200F40F42 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		00D7EF5F2CE1173600D23126 /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
 		00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		00FF73372CC1E076001218BD /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				00B56FEB2CDD28D000EF709A /* EditInfo */,
 				0057ACEB2CDB09C00020BDB0 /* NetworkError.swift */,
 				0057ACE82CDB09600020BDB0 /* Environment.swift */,
+				00D7EF5F2CE1173600D23126 /* NetworkErrorHandler.swift */,
 			);
 			path = "week4-project";
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				0010384C2CD22D7D007C2085 /* PhotoViewController.swift in Sources */,
 				004986452CC81B36006CD84C /* DeveloperView.swift in Sources */,
 				0072737E2CD3F83600F81D44 /* EssentialAppHeaderView.swift in Sources */,
+				00D7EF602CE1173600D23126 /* NetworkErrorHandler.swift in Sources */,
 				0072739A2CD4DE0E00F81D44 /* PreviewImageCell.swift in Sources */,
 				00B56FDE2CDD1D0C00EF709A /* LoginResult.swift in Sources */,
 				007B753C2CC8853800155F27 /* ReviewViewController.swift in Sources */,

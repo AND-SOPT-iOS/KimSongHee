@@ -31,11 +31,10 @@ class LoginService {
             encoder: JSONParameterEncoder.default
         )
         .validate()
-        .response { [weak self] response in
+        .response { response in
             
             guard let statusCode = response.response?.statusCode,
-                  let data = response.data,
-                  let self
+                  let data = response.data
             else {
                 completion(.failure(.unknownError))
                 return
@@ -54,38 +53,9 @@ class LoginService {
                 }
                 
                 case .failure:
-                let error = self.handleStatusCode(statusCode, data: data)
+                let error = NetworkErrorHandler.handleStatusCode(statusCode, data: data)
                 completion(.failure(error))
             }
         }
-    }
-    
-    func handleStatusCode(
-        _ statusCode: Int,
-        data: Data
-    ) -> NetworkError {
-        let errorCode = decodeError(data: data)
-        switch (statusCode, errorCode) {
-        case (400, "01"):
-            return .invalidRequest
-        case (400, "02"):
-            return .invalidPassword
-        case (403, "01"):
-            return .invalidPassword
-        case (404, "00"):
-            return .invalidURL
-        case (500, ""):
-            return .serverError
-        default:
-            return .unknownError
-        }
-    }
-    
-    func decodeError(data: Data) -> String {
-        guard let errorResponse = try? JSONDecoder().decode(
-            ErrorResponse.self,
-            from: data
-        ) else { return "" }
-        return errorResponse.code
     }
 }

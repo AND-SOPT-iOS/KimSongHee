@@ -33,10 +33,9 @@ class EditService {
             headers: headers
         )
         .validate()
-        .response { [weak self] response in
+        .response { response in
             
-            guard let statusCode = response.response?.statusCode,
-                  let self
+            guard let statusCode = response.response?.statusCode
             else {
                 completion(.failure(.unknownError))
                 return
@@ -46,41 +45,12 @@ class EditService {
                 completion(.success(true))
             } else {
                 if let data = response.data {
-                    let error = self.handleStatusCode(statusCode, data: data)
+                    let error = NetworkErrorHandler.handleStatusCode(statusCode, data: data)
                     completion(.failure(error))
                 } else {
                     completion(.failure(.unknownError))
                 }
             }
         }
-    }
-    
-    func handleStatusCode(
-        _ statusCode: Int,
-        data: Data
-    ) -> NetworkError {
-        let errorCode = decodeError(data: data)
-        switch (statusCode, errorCode) {
-        case (400, "00"):
-            return .expressionError
-        case (401, "00"):
-            return .noToken
-        case (403, "00"):
-            return .invalidToken
-        case (404, "00"):
-            return .invalidURL
-        case (500, ""):
-            return .serverError
-        default:
-            return .unknownError
-        }
-    }
-    
-    func decodeError(data: Data) -> String {
-        guard let errorResponse = try? JSONDecoder().decode(
-            ErrorResponse.self,
-            from: data
-        ) else { return "" }
-        return errorResponse.code
     }
 }

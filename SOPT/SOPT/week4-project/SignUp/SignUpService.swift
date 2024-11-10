@@ -32,11 +32,10 @@ class SignUpService {
             encoder: JSONParameterEncoder.default
         )
         .validate()
-        .response { [weak self] response in
+        .response { response in
 
             guard let statusCode = response.response?.statusCode,
-                  let data = response.data,
-                  let self
+                  let data = response.data
             else {
                 completion(.failure(.unknownError))
                 return
@@ -47,38 +46,9 @@ class SignUpService {
                 completion(.success(true))
                 
             case .failure:
-                let error = self.handleStatusCode(statusCode, data: data)
+                let error = SignUpErrorHandler.handleStatusCode(statusCode, data: data)
                 completion(.failure(error))
             }
         }
-    }
-    
-    func handleStatusCode(
-        _ statusCode: Int,
-        data: Data
-    ) -> NetworkError {
-        let errorCode = decodeError(data: data)
-        switch (statusCode, errorCode) {
-        case (400, "00"):
-            return .invalidRequest
-        case (400, "01"):
-            return .expressionError
-        case (404, ""):
-            return .invalidURL
-        case (409, "00"):
-            return .duplicateError
-        case (500, ""):
-            return .serverError
-        default:
-            return .unknownError
-        }
-    }
-    
-    func decodeError(data: Data) -> String {
-        guard let errorResponse = try? JSONDecoder().decode(
-            ErrorResponse.self,
-            from: data
-        ) else { return "" }
-        return errorResponse.code
     }
 }

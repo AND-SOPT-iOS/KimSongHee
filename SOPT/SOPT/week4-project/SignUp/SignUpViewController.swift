@@ -90,7 +90,7 @@ class SignUpViewController: UIViewController {
     
     @objc func signUpButtonTapped() {
         userService.register(
-            username: userNameTextField.text!,
+            userName: userNameTextField.text!,
             password: passwordTextField.text!,
             hobby: hobbyTextField.text!
         ) { [weak self] result in

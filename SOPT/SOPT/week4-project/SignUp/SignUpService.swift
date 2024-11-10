@@ -11,7 +11,7 @@ import Alamofire
 class SignUpService {
     
     func register(
-        username: String,
+        userName: String,
         password: String,
         hobby: String,
         completion: @escaping (Result<Bool, NetworkError>) -> Void
@@ -20,7 +20,7 @@ class SignUpService {
         let url = Environment.baseURL + "/user"
         
         let parameters = SignUpRequest(
-            username: username,
+            userName: userName,
             password: password,
             hobby: hobby
         )

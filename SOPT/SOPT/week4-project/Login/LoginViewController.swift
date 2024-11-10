@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
     
     @objc func loginButtonTapped() {
         loginService.login(
-            username: userNameTextField.text!,
+            userName: userNameTextField.text!,
             password: passwordTextField.text!
         ) { [weak self] result in
             DispatchQueue.main.async {

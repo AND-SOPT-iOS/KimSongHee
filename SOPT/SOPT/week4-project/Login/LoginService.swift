@@ -11,7 +11,7 @@ import Alamofire
 class LoginService {
     
     func login(
-        username: String,
+        userName: String,
         password: String,
         completion: @escaping (Result<Bool, NetworkError>) -> Void
     ) {
@@ -20,7 +20,7 @@ class LoginService {
         let url = Environment.baseURL + "/login"
         
         let parameters = LoginRequest(
-            username: username,
+            userName: userName,
             password: password
         )
         

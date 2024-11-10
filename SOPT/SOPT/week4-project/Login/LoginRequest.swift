@@ -8,6 +8,11 @@
 import Foundation
 
 struct LoginRequest: Codable {
-  let username: String
-  let password: String
+    let userName: String
+    let password: String
+
+    enum CodingKeys: String, CodingKey {
+        case userName = "username"
+        case password
+    }
 }

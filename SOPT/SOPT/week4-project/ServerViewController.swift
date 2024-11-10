@@ -9,59 +9,47 @@ import UIKit
 
 class ServerViewController: UIViewController {
     
-    private let signUpEnterButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("회원가입 하러가기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let signUpEnterButton = UIButton().then {
+        $0.setTitle("회원가입 하러가기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let loginEnterButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("로그인 하러가기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let loginEnterButton = UIButton().then {
+        $0.setTitle("로그인 하러가기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let myHobbyEnterButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("내 취미 찾으러 가기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let myHobbyEnterButton = UIButton().then {
+        $0.setTitle("내 취미 찾으러 가기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let hisHobbyEnterButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("남의 취미 찾으러 가기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let hisHobbyEnterButton = UIButton().then {
+        $0.setTitle("남의 취미 찾으러 가기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let editInfoEnterButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("내 정보 변경하러 가기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let editInfoEnterButton = UIButton().then {
+        $0.setTitle("내 정보 변경하러 가기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let logoutButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("로그아웃하기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let logoutButton = UIButton().then {
+        $0.setTitle("로그아웃하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

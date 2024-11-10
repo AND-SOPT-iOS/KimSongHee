@@ -9,33 +9,25 @@ import UIKit
 
 class EditInfoViewController: UIViewController {
 
-    private let hobbyTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "New Hobby"
-        return textField
-    }()
+    private let hobbyTextField = UITextField().then {
+        $0.placeholder = "New Hobby"
+    }
     
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "New Password"
-        return textField
-    }()
+    private let passwordTextField = UITextField().then {
+        $0.placeholder = "New Password"
+    }
     
-    private let editButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Edit", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let editButton = UIButton().then {
+        $0.setTitle("Edit", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let resultLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "새로운 정보를 8자 이하로 입력해주세요."
-        return label
-    }()
+    private let resultLabel = UILabel().then {
+        $0.textColor = .black
+        $0.text = "새로운 정보를 8자 이하로 입력해주세요."
+    }
     
     let editService = EditService()
     

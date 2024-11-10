@@ -12,21 +12,17 @@ import Then
 
 class MyHobbyViewController: UIViewController {
     
-    private let myHobbyButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("내 취미 조회하기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let myHobbyButton = UIButton().then {
+        $0.setTitle("내 취미 조회하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let resultLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "검색을 위해 버튼을 눌러주세요"
-        return label
-    }()
+    private let resultLabel = UILabel().then {
+        $0.textColor = .black
+        $0.text = "검색을 위해 버튼을 눌러주세요"
+    }
     
     let myHobbyService = MyHobbyService()
 

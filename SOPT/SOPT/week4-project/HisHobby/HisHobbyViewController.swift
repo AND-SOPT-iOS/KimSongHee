@@ -12,27 +12,21 @@ import Then
 
 class HisHobbyViewController: UIViewController {
     
-    private let userNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "User No."
-        return textField
-    }()
+    private let userNameTextField = UITextField().then {
+        $0.placeholder = "User No."
+    }
     
-    private let hisHobbyButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("다른 사람 취미 조회하기", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private let hisHobbyButton = UIButton().then {
+        $0.setTitle("다른 사람 취미 조회하기", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let resultLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "검색하고 싶은 번호를 입력하세요"
-        return label
-    }()
+    private let resultLabel = UILabel().then {
+        $0.textColor = .black
+        $0.text = "검색하고 싶은 번호를 입력하세요"
+    }
     
     let hisHobbyService = HisHobbyService()
 

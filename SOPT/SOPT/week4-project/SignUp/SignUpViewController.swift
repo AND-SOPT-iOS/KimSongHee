@@ -12,39 +12,29 @@ import Then
 
 class SignUpViewController: UIViewController {
     
-    private let userNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "User Name"
-        return textField
-    }()
+    private let userNameTextField = UITextField().then {
+        $0.placeholder = "User Name"
+    }
     
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Password"
-        return textField
-    }()
+    private let passwordTextField = UITextField().then {
+        $0.placeholder = "Password"
+    }
     
-    private let hobbyTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Hobby"
-        return textField
-    }()
+    private let hobbyTextField = UITextField().then {
+        $0.placeholder = "Hobby"
+    }
     
-    private let signUpButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Sign Up", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
-        return button
-    }()
+    private lazy var signUpButton = UIButton().then {
+        $0.setTitle("Sign Up", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .systemBlue
+        $0.layer.cornerRadius = 15
+    }
     
-    private let resultLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.text = "모든 정보는 8자 이하로 입력해주세요."
-        return label
-    }()
+    private let resultLabel = UILabel().then {
+        $0.textColor = .black
+        $0.text = "모든 정보는 8자 이하로 입력해주세요."
+    }
     
     let userService = SignUpService()
     

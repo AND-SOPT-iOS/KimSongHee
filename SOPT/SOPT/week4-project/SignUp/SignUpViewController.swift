@@ -98,20 +98,15 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    // signUp 버튼이 눌리면 userService의 register 메서드 호출
     @objc func signUpButtonTapped() {
         userService.register(
-            // 입력받은 값을 파라미터로 전달
             username: userNameTextField.text!,
             password: passwordTextField.text!,
             hobby: hobbyTextField.text!
         ) { [weak self] result in
-            // 네트워크 요청은 백그라운드 스레드, UI 업데이트는 메인 스레드에서 처리
             DispatchQueue.main.async {
-                // self가 존재하는지 확인, 해제된 상태라면 끝
                 guard let self = self else { return }
                 
-                // result 값에 따라 text 변수 설정
                 var text: String
                 switch result {
                 case .success:

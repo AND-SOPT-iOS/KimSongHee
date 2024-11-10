@@ -91,8 +91,7 @@ class LoginViewController: UIViewController {
     @objc func loginButtonTapped() {
         loginService.login(
             username: userNameTextField.text!,
-            password: passwordTextField.text!,
-            hobby: "123"
+            password: passwordTextField.text!
         ) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -101,7 +100,6 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success:
                     text = "로그인 성공했어요."
-                    // self.hobbyButton.isHidden = false
                     
                 case let .failure(error):
                     text = error.errorMessage

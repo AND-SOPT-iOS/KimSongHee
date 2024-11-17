@@ -124,7 +124,7 @@
 		007B75392CC87A0200155F27 /* StatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatView.swift; sourceTree = "<group>"; };
 		007B753B2CC8853800155F27 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		007B753D2CC8870800155F27 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
-		007EC2942CB973DB005ACF95 /* SOPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SOPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		007EC2942CB973DB005ACF95 /* SOPT-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOPT-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		007EC2972CB973DB005ACF95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		007EC2992CB973DB005ACF95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		007EC29B2CB973DB005ACF95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				00401EDF2CC0D6E00078F3FF /* .gitignore */,
-				007EC2962CB973DB005ACF95 /* SOPT */,
+				007EC2962CB973DB005ACF95 /* SOPT-Project */,
 				007EC2952CB973DB005ACF95 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -279,12 +279,12 @@
 		007EC2952CB973DB005ACF95 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				007EC2942CB973DB005ACF95 /* SOPT.app */,
+				007EC2942CB973DB005ACF95 /* SOPT-Project.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		007EC2962CB973DB005ACF95 /* SOPT */ = {
+		007EC2962CB973DB005ACF95 /* SOPT-Project */ = {
 			isa = PBXGroup;
 			children = (
 				00401EE32CC0DB410078F3FF /* Global */,
@@ -300,7 +300,7 @@
 				007EC2A52CB973DC005ACF95 /* Info.plist */,
 				0057ACE12CDB033A0020BDB0 /* Config.xcconfig */,
 			);
-			path = SOPT;
+			path = "SOPT-Project";
 			sourceTree = "<group>";
 		};
 		00B56FD62CDD1A2A00EF709A /* Login */ = {
@@ -427,9 +427,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		007EC2932CB973DB005ACF95 /* SOPT */ = {
+		007EC2932CB973DB005ACF95 /* SOPT-Project */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 007EC2A82CB973DC005ACF95 /* Build configuration list for PBXNativeTarget "SOPT" */;
+			buildConfigurationList = 007EC2A82CB973DC005ACF95 /* Build configuration list for PBXNativeTarget "SOPT-Project" */;
 			buildPhases = (
 				007EC2902CB973DB005ACF95 /* Sources */,
 				007EC2912CB973DB005ACF95 /* Frameworks */,
@@ -439,14 +439,14 @@
 			);
 			dependencies = (
 			);
-			name = SOPT;
+			name = "SOPT-Project";
 			packageProductDependencies = (
 				0073BF392CBFA2A1000E6314 /* SnapKit */,
 				001038462CD226B9007C2085 /* Then */,
 				0057ACDF2CDB00FE0020BDB0 /* Alamofire */,
 			);
 			productName = SOPT;
-			productReference = 007EC2942CB973DB005ACF95 /* SOPT.app */;
+			productReference = 007EC2942CB973DB005ACF95 /* SOPT-Project.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -464,7 +464,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 007EC28F2CB973DB005ACF95 /* Build configuration list for PBXProject "SOPT" */;
+			buildConfigurationList = 007EC28F2CB973DB005ACF95 /* Build configuration list for PBXProject "SOPT-Project" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -482,7 +482,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				007EC2932CB973DB005ACF95 /* SOPT */,
+				007EC2932CB973DB005ACF95 /* SOPT-Project */,
 			);
 		};
 /* End PBXProject section */
@@ -726,7 +726,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LNZ4277YX9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SOPT/Info.plist;
+				INFOPLIST_FILE = "SOPT-Project/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -737,7 +737,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hongsee.SOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = "hongsee.SOPT-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -754,7 +754,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LNZ4277YX9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SOPT/Info.plist;
+				INFOPLIST_FILE = "SOPT-Project/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -765,7 +765,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hongsee.SOPT;
+				PRODUCT_BUNDLE_IDENTIFIER = "hongsee.SOPT-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -776,7 +776,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		007EC28F2CB973DB005ACF95 /* Build configuration list for PBXProject "SOPT" */ = {
+		007EC28F2CB973DB005ACF95 /* Build configuration list for PBXProject "SOPT-Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				007EC2A62CB973DC005ACF95 /* Debug */,
@@ -785,7 +785,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		007EC2A82CB973DC005ACF95 /* Build configuration list for PBXNativeTarget "SOPT" */ = {
+		007EC2A82CB973DC005ACF95 /* Build configuration list for PBXNativeTarget "SOPT-Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				007EC2A92CB973DC005ACF95 /* Debug */,

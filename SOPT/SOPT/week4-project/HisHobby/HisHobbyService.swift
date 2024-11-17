@@ -25,7 +25,7 @@ class HisHobbyService {
             headers: headers
         )
         .validate()
-        .responseData { response in
+        .response { response in
             
             guard let statusCode = response.response?.statusCode,
                   let data = response.data

@@ -77,14 +77,12 @@ class ServerViewController: UIViewController {
     }
     
     private func setTargets() {
-        
         signUpEnterButton.addTarget(self, action: #selector(signUpEnterButtonTapped), for: .touchUpInside)
         loginEnterButton.addTarget(self, action: #selector(loginEnterButtonTapped), for: .touchUpInside)
         myHobbyEnterButton.addTarget(self, action: #selector(myHobbyEnterButtonTapped), for: .touchUpInside)
         hisHobbyEnterButton.addTarget(self, action: #selector(hisHobbyEnterButtonTapped), for: .touchUpInside)
         editInfoEnterButton.addTarget(self, action: #selector(editInfoEnterButtonTapped), for: .touchUpInside)
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
-        
     }
     
     private func setStyle() {

@@ -78,6 +78,7 @@
 		00D7EF602CE1173600D23126 /* NetworkErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D7EF5F2CE1173600D23126 /* NetworkErrorHandler.swift */; };
 		00D943AE2CDDCC1E00A34720 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */; };
 		00DA67A72CD1BB2400F3C7BE /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */; };
+		00FF63402CF99DA40098E7DB /* RecommendImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF633F2CF99DA40098E7DB /* RecommendImageView.swift */; };
 		00FF73382CC1E076001218BD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF73372CC1E076001218BD /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +154,7 @@
 		00D7EF5F2CE1173600D23126 /* NetworkErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorHandler.swift; sourceTree = "<group>"; };
 		00D943AD2CDDCC1E00A34720 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		00DA67A62CD1BB2400F3C7BE /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		00FF633F2CF99DA40098E7DB /* RecommendImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendImageView.swift; sourceTree = "<group>"; };
 		00FF73372CC1E076001218BD /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,6 +296,7 @@
 				00FF73392CC1E087001218BD /* week2-project */,
 				00D3665B2CD35C5700F40F42 /* week3-project */,
 				00B56FF42CDD36A400EF709A /* week4-project */,
+				00FF63412CF99DAD0098E7DB /* week6-Project */,
 				007EC29D2CB973DB005ACF95 /* Main.storyboard */,
 				007EC2A02CB973DC005ACF95 /* Assets.xcassets */,
 				007EC2A22CB973DC005ACF95 /* LaunchScreen.storyboard */,
@@ -392,6 +395,14 @@
 				007273932CD4D17400F81D44 /* PopularChartCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		00FF63412CF99DAD0098E7DB /* week6-Project */ = {
+			isa = PBXGroup;
+			children = (
+				00FF633F2CF99DA40098E7DB /* RecommendImageView.swift */,
+			);
+			path = "week6-Project";
 			sourceTree = "<group>";
 		};
 		00FF73392CC1E087001218BD /* week2-project */ = {
@@ -567,6 +578,7 @@
 				00B56FE12CDD1E2500EF709A /* MyHobbyViewController.swift in Sources */,
 				007B753E2CC8870800155F27 /* ReviewView.swift in Sources */,
 				007273802CD3FA4F00F81D44 /* EssentialAppCell.swift in Sources */,
+				00FF63402CF99DA40098E7DB /* RecommendImageView.swift in Sources */,
 				0049863D2CC7F68E006CD84C /* NoticeView.swift in Sources */,
 				00B56FE52CDD1FF800EF709A /* HobbyResult.swift in Sources */,
 				00FF73382CC1E076001218BD /* TitleView.swift in Sources */,

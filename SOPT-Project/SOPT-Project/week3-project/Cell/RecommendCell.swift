@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import SnapKit
 import Then
 
@@ -28,11 +29,7 @@ class RecommendCell: UICollectionViewCell {
         $0.font = .systemFont(ofSize: 20, weight: .regular)
     }
     
-    private let recommendImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-        $0.clipsToBounds = true
-        $0.layer.cornerRadius = 10
-    }
+    private var imageView: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,7 +42,7 @@ class RecommendCell: UICollectionViewCell {
     }
     
     private func setUI() {
-        addSubviews(categoryLabel, titleLabel, subtitleLabel, recommendImageView)
+        addSubviews(categoryLabel, titleLabel, subtitleLabel)
     }
     
     private func setLayout() {
@@ -63,21 +60,28 @@ class RecommendCell: UICollectionViewCell {
             $0.top.equalTo(titleLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview()
         }
-        
-        recommendImageView.snp.makeConstraints {
-            $0.top.equalTo(subtitleLabel.snp.bottom).offset(5)
-            $0.height.equalTo(250)
-            $0.width.equalTo(350)
-            $0.leading.equalToSuperview()
-        }
-        
     }
     
     func bind(_ mockData: Recommend) {
         categoryLabel.text = mockData.category
         titleLabel.text = mockData.title
         subtitleLabel.text = mockData.subtitle
-        recommendImageView.image = mockData.image
+        
+        imageView?.removeFromSuperview()
+        
+        let newImageView = RecommendImageView(
+            backgroundImage: Image(uiImage: mockData.image),
+            iconImage: Image(uiImage: mockData.icon),
+            title: mockData.title,
+            subtitle: mockData.subtitle
+        )
+        
+        let hostingController = UIHostingController(rootView: newImageView)
+        hostingController.view.frame = CGRect(x: 0, y: 100, width: 350, height: 250)
+        
+        contentView.addSubview(hostingController.view)
+        imageView = hostingController.view
+        
     }
     
 }

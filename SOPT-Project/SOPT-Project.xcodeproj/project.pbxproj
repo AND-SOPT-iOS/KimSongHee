@@ -60,6 +60,10 @@
 		007EC2AC2CB97412005ACF95 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007EC2AB2CB97412005ACF95 /* DetailViewController.swift */; };
 		00A542AC2D0211690035C8E7 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A542AB2D0211690035C8E7 /* UIImage+.swift */; };
 		00A542B02D0214E20035C8E7 /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A542AF2D0214E20035C8E7 /* RecommendViewModel.swift */; };
+		00A542B22D021AF00035C8E7 /* FreeAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A542B12D021AF00035C8E7 /* FreeAppViewModel.swift */; };
+		00A542B42D021B370035C8E7 /* FreeAppRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A542B32D021B370035C8E7 /* FreeAppRowView.swift */; };
+		00A542B62D021B7D0035C8E7 /* PopularChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A542B52D021B7D0035C8E7 /* PopularChartView.swift */; };
+		00A542B82D0223330035C8E7 /* PopularChartHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A542B72D0223330035C8E7 /* PopularChartHostingController.swift */; };
 		00B56FD82CDD1C7300EF709A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FD72CDD1C7300EF709A /* LoginViewController.swift */; };
 		00B56FDA2CDD1C9500EF709A /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FD92CDD1C9500EF709A /* LoginService.swift */; };
 		00B56FDC2CDD1CB800EF709A /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B56FDB2CDD1CB800EF709A /* LoginRequest.swift */; };
@@ -138,6 +142,10 @@
 		007EC2AB2CB97412005ACF95 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		00A542AB2D0211690035C8E7 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		00A542AF2D0214E20035C8E7 /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
+		00A542B12D021AF00035C8E7 /* FreeAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppViewModel.swift; sourceTree = "<group>"; };
+		00A542B32D021B370035C8E7 /* FreeAppRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeAppRowView.swift; sourceTree = "<group>"; };
+		00A542B52D021B7D0035C8E7 /* PopularChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartView.swift; sourceTree = "<group>"; };
+		00A542B72D0223330035C8E7 /* PopularChartHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularChartHostingController.swift; sourceTree = "<group>"; };
 		00B56FD72CDD1C7300EF709A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		00B56FD92CDD1C9500EF709A /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		00B56FDB2CDD1CB800EF709A /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
@@ -316,6 +324,10 @@
 			isa = PBXGroup;
 			children = (
 				00A542AF2D0214E20035C8E7 /* RecommendViewModel.swift */,
+				00A542B12D021AF00035C8E7 /* FreeAppViewModel.swift */,
+				00A542B32D021B370035C8E7 /* FreeAppRowView.swift */,
+				00A542B52D021B7D0035C8E7 /* PopularChartView.swift */,
+				00A542B72D0223330035C8E7 /* PopularChartHostingController.swift */,
 			);
 			path = "week7-Seminar";
 			sourceTree = "<group>";
@@ -534,6 +546,7 @@
 				0073BF372CBFA208000E6314 /* ColorsViewController.swift in Sources */,
 				00B56FEA2CDD26F900EF709A /* HisHobbyService.swift in Sources */,
 				007273862CD4957400F81D44 /* RankAppHeaderView.swift in Sources */,
+				00A542B82D0223330035C8E7 /* PopularChartHostingController.swift in Sources */,
 				00B56FE82CDD268600EF709A /* HisHobbyViewController.swift in Sources */,
 				0010384E2CD22EF2007C2085 /* PhotoCell.swift in Sources */,
 				007273942CD4D17400F81D44 /* PopularChartCell.swift in Sources */,
@@ -543,6 +556,7 @@
 				0072738A2CD4A93200F81D44 /* PaidAppViewController.swift in Sources */,
 				00D943AE2CDDCC1E00A34720 /* MainTabBarController.swift in Sources */,
 				004986432CC813D6006CD84C /* DescriptionView.swift in Sources */,
+				00A542B62D021B7D0035C8E7 /* PopularChartView.swift in Sources */,
 				00401EE62CC0DB9D0078F3FF /* UIView+.swift in Sources */,
 				00B56FEF2CDD29AF00EF709A /* EditService.swift in Sources */,
 				00B56FF12CDD2F4900EF709A /* EditRequest.swift in Sources */,
@@ -590,9 +604,11 @@
 				0049863F2CC8013A006CD84C /* VersionViewController.swift in Sources */,
 				0010383E2CD22590007C2085 /* ChartCell.swift in Sources */,
 				00127AEE2CC1EBC200A606C6 /* InfoView.swift in Sources */,
+				00A542B22D021AF00035C8E7 /* FreeAppViewModel.swift in Sources */,
 				00B56FE12CDD1E2500EF709A /* MyHobbyViewController.swift in Sources */,
 				007B753E2CC8870800155F27 /* ReviewView.swift in Sources */,
 				007273802CD3FA4F00F81D44 /* EssentialAppCell.swift in Sources */,
+				00A542B42D021B370035C8E7 /* FreeAppRowView.swift in Sources */,
 				00FF63402CF99DA40098E7DB /* RecommendImageView.swift in Sources */,
 				00A542AC2D0211690035C8E7 /* UIImage+.swift in Sources */,
 				0049863D2CC7F68E006CD84C /* NoticeView.swift in Sources */,

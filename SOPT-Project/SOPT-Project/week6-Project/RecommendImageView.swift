@@ -35,17 +35,17 @@ struct RecommendImageView: View {
         VStack {
             Spacer()
             HStack {
-                iconLayer
-                textLayer
+                appIcon
+                appTitles
                 Spacer()
-                buttonLayer
+                downloadButton
             }
             .padding(.horizontal, 10)
             .padding(.bottom, 20)
         }
     }
     
-    private var iconLayer: some View {
+    private var appIcon: some View {
         iconImage
             .resizable()
             .scaledToFit()
@@ -54,7 +54,7 @@ struct RecommendImageView: View {
             .cornerRadius(10)
     }
     
-    private var textLayer: some View {
+    private var appTitles: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.headline)
@@ -69,7 +69,7 @@ struct RecommendImageView: View {
         }
     }
     
-    private var buttonLayer: some View {
+    private var downloadButton: some View {
         Button(action: {}) {
             Text("받기")
                 .font(.headline)

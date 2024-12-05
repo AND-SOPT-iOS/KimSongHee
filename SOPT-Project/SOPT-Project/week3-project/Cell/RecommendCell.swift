@@ -29,7 +29,7 @@ class RecommendCell: UICollectionViewCell {
         $0.font = .systemFont(ofSize: 20, weight: .regular)
     }
     
-    private var swiftUIView: UIView?
+    private var imageView: UIView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,20 +67,20 @@ class RecommendCell: UICollectionViewCell {
         titleLabel.text = mockData.title
         subtitleLabel.text = mockData.subtitle
         
-        swiftUIView?.removeFromSuperview()
+        imageView?.removeFromSuperview()
         
-        let newSwiftUIView = RecommendImageView(
+        let newImageView = RecommendImageView(
             backgroundImage: Image(uiImage: mockData.image),
             iconImage: Image(uiImage: mockData.icon),
             title: mockData.title,
             subtitle: mockData.subtitle
         )
         
-        let hostingController = UIHostingController(rootView: newSwiftUIView)
+        let hostingController = UIHostingController(rootView: newImageView)
         hostingController.view.frame = CGRect(x: 0, y: 100, width: 350, height: 250)
         
         contentView.addSubview(hostingController.view)
-        swiftUIView = hostingController.view
+        imageView = hostingController.view
         
     }
     

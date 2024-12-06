@@ -69,13 +69,7 @@ class RecommendCell: UICollectionViewCell {
         
         imageView?.removeFromSuperview()
         
-        let newImageView = RecommendImageView(
-            backgroundImage: Image(uiImage: mockData.image),
-            iconImage: Image(uiImage: mockData.icon),
-            title: mockData.title,
-            subtitle: mockData.subtitle
-        )
-        
+        let newImageView = RecommendImageView(recommend: mockData)
         let hostingController = UIHostingController(rootView: newImageView)
         hostingController.view.frame = CGRect(x: 0, y: 100, width: 350, height: 250)
         

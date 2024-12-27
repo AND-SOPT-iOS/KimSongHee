@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class FinAppViewController: UIViewController, FreeAppViewControllerDelegate, RankAppHeaderViewDelegate {
     
@@ -89,10 +90,11 @@ class FinAppViewController: UIViewController, FreeAppViewControllerDelegate, Ran
     }
     
     func didTapChartViewButton() {
-        let popularChartViewController = PopularChartViewController()
-        navigationController?.pushViewController(popularChartViewController, animated: true)
+        let popularChartView = PopularChartView()
+        let hostingController = UIHostingController(rootView: popularChartView)
+        hostingController.title = "인기 차트"
+        navigationController?.pushViewController(hostingController, animated: true)
     }
-    
 }
 
 extension FinAppViewController {

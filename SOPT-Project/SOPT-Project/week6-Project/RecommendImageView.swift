@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct RecommendImageView: View {
-    let backgroundImage: Image
-    let iconImage: Image
-    let title: String
-    let subtitle: String
+    let recommend: Recommend
     
     var body: some View {
         ZStack {
@@ -24,7 +21,7 @@ struct RecommendImageView: View {
     }
     
     private var backgroundLayer: some View {
-        backgroundImage
+        Image(uiImage: recommend.image)
             .resizable()
             .scaledToFit()
             .frame(width: 350, height: 250)
@@ -46,7 +43,7 @@ struct RecommendImageView: View {
     }
     
     private var appIcon: some View {
-        iconImage
+        Image(uiImage: recommend.icon)
             .resizable()
             .scaledToFit()
             .frame(width: 40, height: 40)
@@ -56,13 +53,13 @@ struct RecommendImageView: View {
     
     private var appTitles: some View {
         VStack(alignment: .leading) {
-            Text(title)
+            Text(recommend.title)
                 .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .lineLimit(1)
             
-            Text(subtitle)
+            Text(recommend.subtitle)
                 .font(.subheadline)
                 .foregroundColor(.white.opacity(0.8))
                 .lineLimit(1)
@@ -78,17 +75,5 @@ struct RecommendImageView: View {
                 .background(Color.white.opacity(0.3))
                 .cornerRadius(15)
         }
-    }
-}
-
-struct RecommendImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecommendImageView(
-            backgroundImage: Image("ic_taxnote"),
-            iconImage: Image("ic_taxnote"),
-            title: "Taxnote 부기 및 회계 앱",
-            subtitle: "자영업자용 세금 환급을 위한 부기 관리"
-        )
-        .previewLayout(.sizeThatFits)
     }
 }
